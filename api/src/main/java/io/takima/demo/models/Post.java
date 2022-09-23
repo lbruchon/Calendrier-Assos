@@ -21,8 +21,9 @@ public class Post {
     private String postDescription;
     @Column(name = "post_date_event")
     private String postDateEvent;
+
     @ManyToOne
-    @JoinColumn(name = "association_id", nullable = false)
+    @JoinColumn(name = "asso_id", nullable = false)
     private Association association;
     @ManyToOne
     @JoinColumn(name = "tag_id", nullable=false)
@@ -30,7 +31,6 @@ public class Post {
 
 
     public Post() {
-
     }
 
     public Post(Long id, String postName, String postPlace, String postLink, String postDescription, String postDateEvent, Association association, Tag tag) {

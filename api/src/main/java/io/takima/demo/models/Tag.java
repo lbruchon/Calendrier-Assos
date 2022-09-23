@@ -9,7 +9,7 @@ import java.util.Set;
 public class Tag {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long tag_id;
+    private Long id;
     @Column(name = "tag_name")
     private String tagName;
 
@@ -20,17 +20,17 @@ public class Tag {
     }
 
     public Tag(Long tag_id, String tagName, Set<Post> posts) {
-        this.tag_id = tag_id;
+        this.id = tag_id;
         this.tagName = tagName;
         this.posts = posts;
     }
 
     public Long getTag_id() {
-        return tag_id;
+        return id;
     }
 
     public void setTag_id(Long tag_id) {
-        this.tag_id = tag_id;
+        this.id = tag_id;
     }
 
     public String getTagName() {
@@ -55,18 +55,18 @@ public class Tag {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Tag tag = (Tag) o;
-        return Objects.equals(tag_id, tag.tag_id) && Objects.equals(tagName, tag.tagName) && Objects.equals(posts, tag.posts);
+        return Objects.equals(id, tag.id) && Objects.equals(tagName, tag.tagName) && Objects.equals(posts, tag.posts);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(tag_id, tagName, posts);
+        return Objects.hash(id, tagName, posts);
     }
 
     @Override
     public String toString() {
         return "Tag{" +
-                "tag_id=" + tag_id +
+                "tag_id=" + id +
                 ", tagName='" + tagName + '\'' +
                 ", posts=" + posts +
                 '}';

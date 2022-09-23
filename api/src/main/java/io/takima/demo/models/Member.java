@@ -8,7 +8,7 @@ import java.util.Objects;
 public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long member_id;
+    private Long id;
     @Column(name = "member_email")
     private String memberEmail;
     @Column(name = "member_mdp")
@@ -16,14 +16,14 @@ public class Member {
     @Column(name = "member_superadmin")
     private Boolean memberSuperadmin;
     @ManyToOne
-    @JoinColumn(name="associationId", nullable = false)
+    @JoinColumn(name="asso_id", nullable = false)
     private Association association;
 
     public Member() {
     }
 
     public Member(Long member_id, String memberEmail, String memberMdp, Boolean memberSuperadmin, Association association) {
-        this.member_id = member_id;
+        this.id = member_id;
         this.memberEmail = memberEmail;
         this.memberMdp = memberMdp;
         this.memberSuperadmin = memberSuperadmin;
@@ -31,11 +31,11 @@ public class Member {
     }
 
     public Long getMember_id() {
-        return member_id;
+        return id;
     }
 
     public void setMember_id(Long member_id) {
-        this.member_id = member_id;
+        this.id = member_id;
     }
 
     public String getMemberEmail() {
@@ -75,18 +75,18 @@ public class Member {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Member member = (Member) o;
-        return Objects.equals(member_id, member.member_id) && Objects.equals(memberEmail, member.memberEmail) && Objects.equals(memberMdp, member.memberMdp) && Objects.equals(memberSuperadmin, member.memberSuperadmin) && Objects.equals(association, member.association);
+        return Objects.equals(id, member.id) && Objects.equals(memberEmail, member.memberEmail) && Objects.equals(memberMdp, member.memberMdp) && Objects.equals(memberSuperadmin, member.memberSuperadmin) && Objects.equals(association, member.association);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(member_id, memberEmail, memberMdp, memberSuperadmin, association);
+        return Objects.hash(id, memberEmail, memberMdp, memberSuperadmin, association);
     }
 
     @Override
     public String toString() {
         return "Member{" +
-                "member_id=" + member_id +
+                "member_id=" + id +
                 ", memberEmail='" + memberEmail + '\'' +
                 ", memberMdp='" + memberMdp + '\'' +
                 ", memberSuperadmin=" + memberSuperadmin +

@@ -9,7 +9,7 @@ import java.util.Set;
 public class Association {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long associationId;
+    private Long id;
 
     @Column(name="association_name")
     private String associationName;
@@ -19,10 +19,10 @@ public class Association {
     private String associationIgLink;
     @OneToMany(mappedBy = "association")
     private Set<Post> posts;
-
+// tester avec une liste
 
     public Association(Long association_id, String associationName, String associationFbLink, String associationIgLink, Set<Post> posts, Set<Tag> tags) {
-        this.associationId = association_id;
+        this.id = association_id;
         this.associationName = associationName;
         this.associationFbLink = associationFbLink;
         this.associationIgLink = associationIgLink;
@@ -30,16 +30,23 @@ public class Association {
 
     }
 
+    public Association(Long asso_id, String associationName, String associationFbLink, String associationIgLink) {
+        this.id = asso_id;
+        this.associationName = associationName;
+        this.associationFbLink = associationFbLink;
+        this.associationIgLink = associationIgLink;
+    }
+
     public Association() {
 
     }
 
-    public Long getAssociationId() {
-        return associationId;
+    public Long getAsso_id() {
+        return id;
     }
 
-    public void setAssociationId(Long association_id) {
-        this.associationId = association_id;
+    public void setAsso_id(Long association_id) {
+        this.id = association_id;
     }
 
     public String getAssociationName() {
@@ -80,18 +87,18 @@ public class Association {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Association that = (Association) o;
-        return Objects.equals(associationId, that.associationId) && Objects.equals(associationName, that.associationName) && Objects.equals(associationFbLink, that.associationFbLink) && Objects.equals(associationIgLink, that.associationIgLink) && Objects.equals(posts, that.posts);
+        return Objects.equals(id, that.id) && Objects.equals(associationName, that.associationName) && Objects.equals(associationFbLink, that.associationFbLink) && Objects.equals(associationIgLink, that.associationIgLink) && Objects.equals(posts, that.posts);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(associationId, associationName, associationFbLink, associationIgLink, posts);
+        return Objects.hash(id, associationName, associationFbLink, associationIgLink, posts);
     }
 
     @Override
     public String toString() {
         return "Association{" +
-                "association_id=" + associationId +
+                "association_id=" + id +
                 ", associationName='" + associationName + '\'' +
                 ", associationFbLink='" + associationFbLink + '\'' +
                 ", associationIgLink='" + associationIgLink + '\'' +
