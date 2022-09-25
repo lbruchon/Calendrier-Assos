@@ -2,7 +2,6 @@ package io.takima.demo.controllers;
 
 import io.takima.demo.DAO.AssociationDAO;
 import io.takima.demo.models.Association;
-import io.takima.demo.models.User;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
