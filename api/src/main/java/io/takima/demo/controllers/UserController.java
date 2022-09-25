@@ -1,6 +1,5 @@
 package io.takima.demo.controllers;
 
-import io.takima.demo.UserDAO;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
