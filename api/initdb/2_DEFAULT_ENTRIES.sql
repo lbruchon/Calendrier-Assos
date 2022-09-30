@@ -19,7 +19,7 @@ INSERT INTO defaultdb.tags (id, tag_name) VALUES (4, 'Voyage');
 INSERT INTO defaultdb.tags (id, tag_name) VALUES (5, 'Sport');
 */
 
-/* Membre */
+/* Member */
 
 /*
 INSERT INTO defaultdb.members (id, member_email, member_mdp, member_superadmin, asso_id)
@@ -37,3 +37,13 @@ VALUES (4, 'iam.theone@gmail.com', 'rirififiloulou', false, (SELECT id FROM asso
 INSERT INTO defaultdb.members (id, member_email, member_mdp, member_superadmin, asso_id)
 VALUES (5, 'elton.john@gmail.com', 'elvis_presley', false, (SELECT id FROM associations WHERE association_name = 'Fake OPJ'));
 */
+
+/* Post */
+INSERT INTO defaultdb.posts (id, post_name, post_place, post_link, post_description, post_date_event, asso_id, tag_id)
+VALUES (1, 'Soirée d\'intégration', '1 rue du palais', 'fb_link', 'Super post d\'une super asso', '2022-10-09', (SELECT id FROM associations WHERE association_name = 'Fake BDE'), (SELECT id FROM tags WHERE tag_name = 'Soirée'));
+
+INSERT INTO defaultdb.posts (id, post_name, post_place, post_link, post_description, post_date_event, asso_id, tag_id)
+VALUES (2, 'Afterwork BDE', '5 place de la Défense', 'fb_link', 'Viens rencontrer les membres de ton BDE', '2022-10-23', (SELECT id FROM associations WHERE association_name = 'Fake BDE'), (SELECT id FROM tags WHERE tag_name = 'Afterwork'));
+
+INSERT INTO defaultdb.posts (id, post_name, post_place, post_link, post_description, post_date_event, asso_id, tag_id)
+VALUES (3, 'Voyage vers les tapas', 'Espagne', 'fb_link', 'Évades-toi vers une nouvelle destination', '2022-10-15', (SELECT id FROM associations WHERE association_name = 'Fake OPJ'), (SELECT id FROM tags WHERE tag_name = 'Voyage'));
