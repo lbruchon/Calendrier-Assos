@@ -11,27 +11,29 @@ INSERT INTO defaultdb.associations (id, association_name, association_fb_link, a
 */
 
 /* Tag */
-
+/*
 INSERT INTO defaultdb.tags (id, tag_name) VALUES (1, 'Évènement');
 INSERT INTO defaultdb.tags (id, tag_name) VALUES (2, 'Afterwork');
 INSERT INTO defaultdb.tags (id, tag_name) VALUES (3, 'Soirée');
 INSERT INTO defaultdb.tags (id, tag_name) VALUES (4, 'Voyage');
 INSERT INTO defaultdb.tags (id, tag_name) VALUES (5, 'Sport');
+*/
 
 /* Membre */
+
 /*
 INSERT INTO defaultdb.members (id, member_email, member_mdp, member_superadmin, asso_id)
-VALUES (1, john.doe@gmail.com, jojo, false, SELECT id FROM associations WHERE association_name = 'Fake BDS');
+VALUES (1, 'john.doe@gmail.com', 'jojo', false, (SELECT id FROM associations WHERE association_name = 'Fake BDS'));
 
 INSERT INTO defaultdb.members (id, member_email, member_mdp, member_superadmin, asso_id)
-VALUES (2, jason.bourne@gmail.com, jamie, false, SELECT id FROM associations WHERE association_name = 'Fake BDE');
+VALUES (2, 'jason.bourne@gmail.com', 'jamie', false, (SELECT id FROM associations WHERE association_name = 'Fake BDE'));
 
 INSERT INTO defaultdb.members (id, member_email, member_mdp, member_superadmin, asso_id)
-VALUES (3, honore.fetnat@gmail.com, hofet, false, SELECT id FROM associations WHERE association_name = 'Fake BDA');
+VALUES (3, 'honore.fetnat@gmail.com', 'hofet', false, (SELECT id FROM associations WHERE association_name = 'Fake BDA'));
 
 INSERT INTO defaultdb.members (id, member_email, member_mdp, member_superadmin, asso_id)
-VALUES (4, iam.theone@gmail.com, rirififiloulou, false, SELECT id FROM associations WHERE association_name = 'Fake BDJ');
+VALUES (4, 'iam.theone@gmail.com', 'rirififiloulou', false, (SELECT id FROM associations WHERE association_name = 'Fake BDJ'));
 
 INSERT INTO defaultdb.members (id, member_email, member_mdp, member_superadmin, asso_id)
-VALUES (5, elton.john@gmail.com, elvis presley, false, SELECT id FROM associations WHERE association_name = 'Fake OPJ');
+VALUES (5, 'elton.john@gmail.com', 'elvis_presley', false, (SELECT id FROM associations WHERE association_name = 'Fake OPJ'));
 */
