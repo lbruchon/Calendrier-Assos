@@ -15,15 +15,18 @@ public class AssociationController {
 
     public AssociationController(AssociationDAO associationDAO) {this.associationDAO= associationDAO;}
 
-@GetMapping("")
-    public List<Association> listAssociations(){
-    Iterable<Association> it = associationDAO.findAll();
-    List <Association> associations = new ArrayList<>();
-    it.forEach(association -> associations.add(association));
-    return associations ;
-}
+    @GetMapping("")
+        public List<Association> listAssociations(){
+        Iterable<Association> it = associationDAO.findAll();
+        List <Association> associations = new ArrayList<>();
+        it.forEach(association -> associations.add(association));
+        return associations;
+    }
+
     @PostMapping("")
-    public void addassociation(@RequestBody Association association) {
-        associationDAO.save(association);
+    public void addAssociation(@RequestBody Association association) { associationDAO.save(association); }
+
+    @DeleteMapping("/{id}"){
+        public void deleteAssociation(@PathVariable Long id) { associationDAO.deleteById(id); }
     }
 }
