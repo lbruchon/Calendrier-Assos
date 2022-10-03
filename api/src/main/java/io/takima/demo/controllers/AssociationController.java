@@ -54,7 +54,27 @@ public class AssociationController {
         return new ResponseEntity<>(id, HttpStatus.OK);
     }
 
-    /*@DeleteMapping("/{id}"){
-        public void deleteAssociation(@PathVariable Long id) { associationDAO.deleteById(id); }
-    }*/
+    @PatchMapping("/patchtest")
+    public String patchtest(){
+        return "Patch Success";
+    }
+    @PutMapping ("/puttest")
+    public String puttest(){
+        return "Put Success";
+    }
+    @PutMapping("/{{id}}/nomAsso={{associationName}}")
+    public ResponseEntity<Association> updateAssociationPartially(@PathVariable Long id, @PathVariable String associationName){
+
+        boolean exists = associationDAO.existsById(id);
+
+        if (!exists){
+            Association association = associationDAO.findById(id).get();
+            association.setAssociationName(associationName);
+            return new ResponseEntity<Association>(associationDAO.save(association), HttpStatus.OK);
+        }
+        else {
+            return new ResponseEntity<Association>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 }

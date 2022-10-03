@@ -1,6 +1,6 @@
 
 INSERT INTO defaultdb.associations (id, association_name, association_fb_link, association_ig_link) VALUES (1, 'Asso1', 'LienFB1', 'LienFB2');
-/* INSERT INTO defaultdb.associations (id, association_name, association_fb_link, association_ig_link) VALUES (2, 'Fake BDS', 'LienFB3', 'LienIG2');
+INSERT INTO defaultdb.associations (id, association_name, association_fb_link, association_ig_link) VALUES (2, 'Fake BDS', 'LienFB3', 'LienIG2');
 INSERT INTO defaultdb.associations (id, association_name, association_fb_link, association_ig_link) VALUES (3, 'Fake BDE', 'LienFB4', 'LienIG3');
 INSERT INTO defaultdb.associations (id, association_name, association_fb_link, association_ig_link) VALUES (4, 'Fake BDA', 'LienFB5', 'LienIG4');
 INSERT INTO defaultdb.associations (id, association_name, association_fb_link, association_ig_link) VALUES (5, 'Fake BDJ', 'LienFB6', 'LienIG5');
@@ -35,6 +35,3 @@ VALUES (2, 'Afterwork BDE', '5 place de la Défense', 'fb_link', 'Viens rencontr
 
 INSERT INTO defaultdb.posts (id, post_name, post_place, post_link, post_description, post_date_event, asso_id, tag_id)
 VALUES (3, 'Voyage vers les tapas', 'Espagne', 'fb_link', 'Évades-toi vers une nouvelle destination', '2022-10-15', (SELECT id FROM associations WHERE association_name = 'Fake OPJ'), (SELECT id FROM tags WHERE tag_name = 'Voyage'));
-
-
- */
