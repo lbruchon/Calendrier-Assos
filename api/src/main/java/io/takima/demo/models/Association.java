@@ -17,8 +17,7 @@ public class Association {
     private String associationFbLink;
     @Column(name="association_ig_link")
     private String associationIgLink;
-    @OneToMany(mappedBy = "association")
-    private Set<Post> posts;
+
 // tester avec une liste
 
     public Association(Long association_id, String associationName, String associationFbLink, String associationIgLink, Set<Post> posts, Set<Tag> tags) {
@@ -26,7 +25,7 @@ public class Association {
         this.associationName = associationName;
         this.associationFbLink = associationFbLink;
         this.associationIgLink = associationIgLink;
-        this.posts = posts;
+
 
     }
 
@@ -73,13 +72,6 @@ public class Association {
         this.associationIgLink = associationIgLink;
     }
 
-    public Set<Post> getPosts() {
-        return posts;
-    }
-
-    public void setPosts(Set<Post> posts) {
-        this.posts = posts;
-    }
 
 
     @Override
@@ -87,12 +79,12 @@ public class Association {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Association that = (Association) o;
-        return Objects.equals(id, that.id) && Objects.equals(associationName, that.associationName) && Objects.equals(associationFbLink, that.associationFbLink) && Objects.equals(associationIgLink, that.associationIgLink) && Objects.equals(posts, that.posts);
+        return Objects.equals(id, that.id) && Objects.equals(associationName, that.associationName) && Objects.equals(associationFbLink, that.associationFbLink) && Objects.equals(associationIgLink, that.associationIgLink);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, associationName, associationFbLink, associationIgLink, posts);
+        return Objects.hash(id, associationName, associationFbLink, associationIgLink);
     }
 
     @Override
@@ -102,7 +94,6 @@ public class Association {
                 ", associationName='" + associationName + '\'' +
                 ", associationFbLink='" + associationFbLink + '\'' +
                 ", associationIgLink='" + associationIgLink + '\'' +
-                ", posts=" + posts +
                 '}';
     }
 }

@@ -13,8 +13,6 @@ public class Tag {
     @Column(name = "tag_name")
     private String tagName;
 
-   @OneToMany(mappedBy = "tag")
-   private Set<Post> posts;
 
     public Tag() {
     }
@@ -22,7 +20,7 @@ public class Tag {
     public Tag(Long tag_id, String tagName, Set<Post> posts) {
         this.id = tag_id;
         this.tagName = tagName;
-        this.posts = posts;
+
     }
 
     public Long getTag_id() {
@@ -41,13 +39,6 @@ public class Tag {
         this.tagName = tagName;
     }
 
-    public Set<Post> getPosts() {
-        return posts;
-    }
-
-    public void setPosts(Set<Post> posts) {
-        this.posts = posts;
-    }
 
 
     @Override
@@ -55,12 +46,12 @@ public class Tag {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Tag tag = (Tag) o;
-        return Objects.equals(id, tag.id) && Objects.equals(tagName, tag.tagName) && Objects.equals(posts, tag.posts);
+        return Objects.equals(id, tag.id) && Objects.equals(tagName, tag.tagName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, tagName, posts);
+        return Objects.hash(id, tagName);
     }
 
     @Override
@@ -68,7 +59,6 @@ public class Tag {
         return "Tag{" +
                 "tag_id=" + id +
                 ", tagName='" + tagName + '\'' +
-                ", posts=" + posts +
                 '}';
     }
 }

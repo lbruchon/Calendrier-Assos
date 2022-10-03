@@ -1,7 +1,6 @@
 package io.takima.demo.controllers;
 
 import io.takima.demo.DAO.PostDAO;
-import io.takima.demo.models.Association;
 import io.takima.demo.models.Post;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,10 +16,12 @@ public class PostController {
     public PostController(PostDAO postDAO){this.postDAO=postDAO;}
 
     @GetMapping("")
-    public List<Post> listPosts() {
+    public List<Post> listPosts(){
         Iterable<Post> it = postDAO.findAll();
+
         List<Post> posts = new ArrayList<>();
         it.forEach(post -> posts.add(post));
+
         return posts;
     }
 
