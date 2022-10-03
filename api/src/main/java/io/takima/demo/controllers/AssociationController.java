@@ -2,6 +2,8 @@ package io.takima.demo.controllers;
 
 import io.takima.demo.DAO.AssociationDAO;
 import io.takima.demo.models.Association;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -25,6 +27,19 @@ public class AssociationController {
 
     @PostMapping("")
     public void addAssociation(@RequestBody Association association) { associationDAO.save(association); }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Long> deleteAssociation(@PathVariable Long id) {
+
+        boolean exists = associationDAO.existsById(id);
+
+        if (!exists) {
+
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        associationDAO.deleteById(id);
+        return new ResponseEntity<>(id, HttpStatus.OK);
+    }
 
     /*@DeleteMapping("/{id}"){
         public void deleteAssociation(@PathVariable Long id) { associationDAO.deleteById(id); }

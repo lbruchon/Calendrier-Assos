@@ -20,17 +20,10 @@ public class Association {
 
 // tester avec une liste
 
-    public Association(Long association_id, String associationName, String associationFbLink, String associationIgLink, Set<Post> posts, Set<Tag> tags) {
-        this.id = association_id;
-        this.associationName = associationName;
-        this.associationFbLink = associationFbLink;
-        this.associationIgLink = associationIgLink;
 
 
-    }
-
-    public Association(Long asso_id, String associationName, String associationFbLink, String associationIgLink) {
-        this.id = asso_id;
+    public Association(Long id, String associationName, String associationFbLink, String associationIgLink) {
+        this.id = id;
         this.associationName = associationName;
         this.associationFbLink = associationFbLink;
         this.associationIgLink = associationIgLink;
@@ -40,12 +33,12 @@ public class Association {
 
     }
 
-    public Long getAsso_id() {
+    public Long getId() {
         return id;
     }
 
-    public void setAsso_id(Long association_id) {
-        this.id = association_id;
+    public void setId(Long association_id) {
+        this.id = id;
     }
 
     public String getAssociationName() {
@@ -90,7 +83,7 @@ public class Association {
     @Override
     public String toString() {
         return "Association{" +
-                "association_id=" + id +
+                "id=" + id +
                 ", associationName='" + associationName + '\'' +
                 ", associationFbLink='" + associationFbLink + '\'' +
                 ", associationIgLink='" + associationIgLink + '\'' +
