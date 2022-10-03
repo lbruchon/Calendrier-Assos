@@ -1,7 +1,13 @@
-# DROP TABLE associations;
-# DROP TABLE tags;
-# DROP TABLE members;
-# DROP TABLE posts;
+
+DROP TABLE posts;
+
+DROP TABLE tags;
+DROP TABLE members;
+DROP TABLE associations;
+
+
+
+
 
 create table associations
 (

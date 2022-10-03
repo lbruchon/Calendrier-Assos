@@ -28,7 +28,7 @@ public class MemberController {
         memberDAo.save(member);
     }
 
-    @DeleteMapping("/{id}"){
+    /*@DeleteMapping("/{id}"){
         public void deleteMember(@PathVariable Long id) { userDAO.deleteById(id); }
-    }
+    }*/
 }

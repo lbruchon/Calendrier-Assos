@@ -28,8 +28,8 @@ public class TagController {
         tagDAO.save(tag);
     }
 
-    @DeleteMapping("/{id}"){
+    /*@DeleteMapping("/{id}"){
         public void deleteTag(@PathVariable Long id) { tagDAO.deleteTagById(id) }
-    }
+    }*/
 
 }

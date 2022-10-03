@@ -26,7 +26,7 @@ public class AssociationController {
     @PostMapping("")
     public void addAssociation(@RequestBody Association association) { associationDAO.save(association); }
 
-    @DeleteMapping("/{id}"){
+    /*@DeleteMapping("/{id}"){
         public void deleteAssociation(@PathVariable Long id) { associationDAO.deleteById(id); }
-    }
+    }*/
 }
