@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin
 @RequestMapping("associations")
@@ -25,10 +26,22 @@ public class AssociationController {
         return associations;
     }
 
+    @GetMapping( "/{id}")
+    public Association getAssociationById(@PathVariable Long id){
+        Optional associationOptional =associationDAO.findById(id);
+
+        if (associationOptional.isPresent()==false){
+        return null;
+        }else {
+            Association association = (Association) associationOptional.get();
+            return association;
+        }
+    }
+
     @PostMapping("")
     public void addAssociation(@RequestBody Association association) { associationDAO.save(association); }
 
-    @DeleteMapping(value = "/{id}")
+    @DeleteMapping( "/{id}")
     public ResponseEntity<Long> deleteAssociation(@PathVariable Long id) {
 
         boolean exists = associationDAO.existsById(id);
