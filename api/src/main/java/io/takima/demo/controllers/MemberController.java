@@ -24,7 +24,11 @@ public class MemberController {
         return members ;
     }
     @PostMapping("")
-    public void addmember(@RequestBody Member member) {
+    public void addMember(@RequestBody Member member) {
         memberDAo.save(member);
+    }
+
+    @DeleteMapping("/{id}"){
+        public void deleteMember(@PathVariable Long id) { userDAO.deleteById(id); }
     }
 }
