@@ -24,7 +24,12 @@ public class TagController {
         return tags ;
     }
     @PostMapping("")
-    public void addassociation(@RequestBody Tag tag) {
+    public void addTag(@RequestBody Tag tag) {
         tagDAO.save(tag);
     }
+
+    @DeleteMapping("/{id}"){
+        public void deleteTag(@PathVariable Long id) { tagDAO.deleteTagById(id) }
+    }
+
 }
