@@ -35,3 +35,6 @@ VALUES (2, 'Afterwork BDE', '5 place de la Défense', 'fb_link', 'Viens rencontr
 
 INSERT INTO defaultdb.posts (id, post_name, post_place, post_link, post_description, post_date_event, asso_id, tag_id)
 VALUES (3, 'Voyage vers les tapas', 'Espagne', 'fb_link', 'Évades-toi vers une nouvelle destination', '2022-10-15', (SELECT id FROM associations WHERE association_name = 'Fake OPJ'), (SELECT id FROM tags WHERE tag_name = 'Voyage'));
+/*
+ 
+ */
