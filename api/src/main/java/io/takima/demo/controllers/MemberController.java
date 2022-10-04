@@ -2,6 +2,7 @@ package io.takima.demo.controllers;
 
 import io.takima.demo.DAO.MemberDAO;
 
+import io.takima.demo.models.Association;
 import io.takima.demo.models.Member;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,7 +31,14 @@ public class MemberController {
         memberDAo.save(member);
     }
 
-    /*@DeleteMapping("/{id}"){
-        public void deleteMember(@PathVariable Long id) { userDAO.deleteById(id); }
-    }*/
+    @GetMapping("/{{id}}")
+    public Association getAssociationByMemberId(@PathVariable Long id){
+        boolean present= memberDAo.findById(id).isPresent();
+        if (present){
+            Member member = memberDAo.findById(id).get();
+
+           return member.getAssociation();
+        }
+        else return null;
+    }
 }
