@@ -2,6 +2,7 @@ package io.takima.demo.controllers;
 
 import io.takima.demo.DAO.AssociationDAO;
 import io.takima.demo.models.Association;
+import io.takima.demo.models.Member;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -70,7 +71,13 @@ public class AssociationController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
-        
     }
 
+    @GetMapping ("/membersOfAsso/{id}")
+    public List<Member> getAllMemberOfAnAsso(@PathVariable Long id) {
+            Iterable<Member> it = getAssociationById(id).getMembresAsso();
+            List <Member> membersOfAnAsso = new ArrayList<>();
+            it.forEach(member -> membersOfAnAsso.add(member));
+            return membersOfAnAsso;
+    }
 }
