@@ -40,7 +40,7 @@ public class AssociationController {
     }
 
     @PostMapping("")
-    public void addAssociation(@RequestBody Association association) { associationDAO.save(association); }
+    public void addAssociation(@ModelAttribute Association association) { associationDAO.save(association); }
 
     @DeleteMapping( "/{id}")
     public ResponseEntity<Long> deleteAssociation(@PathVariable Long id) {
@@ -55,25 +55,15 @@ public class AssociationController {
         return new ResponseEntity<>(id, HttpStatus.OK);
     }
 
-    @PatchMapping("/patchtest")
-    public String patchtest(){
-        return "Patch Success";
-    }
-    @PutMapping ("/puttest")
-    public String puttest(){
-        return "Put Success";
-    }
-
-//PAs reussi a tester on verra wala
     @PatchMapping ("/{id}")
-    public ResponseEntity<Association> updateAssociationPartially(@PathVariable Long id, @RequestBody Association associationModif) {
+    public ResponseEntity<Association> updateAssociationPartially(@PathVariable Long id, @ModelAttribute Association associationModif) {
         boolean exists = associationDAO.existsById(id);
         if (exists) {
             Association association = associationDAO.findById(id).get();
 
             association.setAssociationName(associationModif.getAssociationName());
-            association.setAssociationName(associationModif.getAssociationIgLink());
-            association.setAssociationName(associationModif.getAssociationFbLink());
+            association.setAssociationIgLink(associationModif.getAssociationIgLink());
+            association.setAssociationFbLink(associationModif.getAssociationFbLink());
             final Association associationUpdated = associationDAO.save(association);
             return ResponseEntity.ok(associationUpdated);
         } else {

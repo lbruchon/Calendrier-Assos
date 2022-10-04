@@ -1,5 +1,7 @@
 package io.takima.demo.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Objects;
 import java.util.Set;
@@ -27,6 +29,7 @@ public class Post {
     private Association association;
     @ManyToOne
     @JoinColumn(name = "tag_id", nullable=false)
+    @JsonIgnore
     private Tag tag;
 
 

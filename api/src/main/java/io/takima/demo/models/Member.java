@@ -1,11 +1,13 @@
 package io.takima.demo.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
 @Table(name="members")
-public class Member {
+public class  Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,6 +26,13 @@ public class Member {
 
     public Member(Long member_id, String memberEmail, String memberMdp, Boolean memberSuperadmin, Association association) {
         this.id = member_id;
+        this.memberEmail = memberEmail;
+        this.memberMdp = memberMdp;
+        this.memberSuperadmin = memberSuperadmin;
+        this.association = association;
+    }
+
+    public Member(String memberEmail, String memberMdp, Boolean memberSuperadmin, Association association) {
         this.memberEmail = memberEmail;
         this.memberMdp = memberMdp;
         this.memberSuperadmin = memberSuperadmin;
