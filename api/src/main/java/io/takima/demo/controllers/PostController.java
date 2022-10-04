@@ -29,4 +29,6 @@ public class PostController {
     public void addpost(@RequestBody Post post) {
         postDAO.save(post);
     }
+
+    
 }

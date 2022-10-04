@@ -4,6 +4,7 @@ import io.takima.demo.DAO.AssociationDAO;
 import io.takima.demo.models.Association;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -62,18 +63,21 @@ public class AssociationController {
     public String puttest(){
         return "Put Success";
     }
-    @PutMapping("/{{id}}/nomAsso={{associationName}}")
-    public ResponseEntity<Association> updateAssociationPartially(@PathVariable Long id, @PathVariable String associationName){
 
+//PAs reussi a tester on verra wala
+    @PatchMapping ("/{id}")
+    public ResponseEntity<Association> updateAssociationPartially(@PathVariable Long id, @RequestBody Association associationModif) {
         boolean exists = associationDAO.existsById(id);
-
-        if (!exists){
+        if (exists) {
             Association association = associationDAO.findById(id).get();
-            association.setAssociationName(associationName);
-            return new ResponseEntity<Association>(associationDAO.save(association), HttpStatus.OK);
-        }
-        else {
-            return new ResponseEntity<Association>(HttpStatus.INTERNAL_SERVER_ERROR);
+
+            association.setAssociationName(associationModif.getAssociationName());
+            association.setAssociationName(associationModif.getAssociationIgLink());
+            association.setAssociationName(associationModif.getAssociationFbLink());
+            final Association associationUpdated = associationDAO.save(association);
+            return ResponseEntity.ok(associationUpdated);
+        } else {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
