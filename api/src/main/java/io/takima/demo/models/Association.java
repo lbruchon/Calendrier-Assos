@@ -1,6 +1,9 @@
 package io.takima.demo.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -18,15 +21,41 @@ public class Association {
     @Column(name="association_ig_link")
     private String associationIgLink;
 
-// tester avec une liste
+    @OneToMany (mappedBy = "association")
+    @JsonIgnore
+    private List<Member> membresAsso;
 
+    @OneToMany (mappedBy = "association")
+    @JsonIgnore
+    private List<Post> postsAsso;
 
+    public List<Member> getMembresAsso() {
+        return membresAsso;
+    }
 
-    public Association(Long id, String associationName, String associationFbLink, String associationIgLink) {
+    public void setMembresAsso(List<Member> membresAsso) {
+        this.membresAsso = membresAsso;
+    }
+
+    public List<Post> getPostsAsso() {
+        return postsAsso;
+    }
+
+    public void setPostsAsso(List<Post> postsAsso) {
+        this.postsAsso = postsAsso;
+    }
+
+    public Association(Long id) {
+        this.id = id;
+    }
+
+    public Association(Long id, String associationName, String associationFbLink, String associationIgLink, List<Member> membresAsso, List<Post> postsAsso) {
         this.id = id;
         this.associationName = associationName;
         this.associationFbLink = associationFbLink;
         this.associationIgLink = associationIgLink;
+        this.membresAsso = membresAsso;
+        this.postsAsso = postsAsso;
     }
 
     public Association() {

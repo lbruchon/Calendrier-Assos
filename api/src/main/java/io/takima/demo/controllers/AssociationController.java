@@ -55,15 +55,6 @@ public class AssociationController {
         return new ResponseEntity<>(id, HttpStatus.OK);
     }
 
-    @PatchMapping("/patchtest")
-    public String patchtest(){
-        return "Patch Success";
-    }
-    @PutMapping ("/puttest")
-    public String puttest(){
-        return "Put Success";
-    }
-
     @PatchMapping ("/{id}")
     public ResponseEntity<Association> updateAssociationPartially(@PathVariable Long id, @ModelAttribute Association associationModif) {
         boolean exists = associationDAO.existsById(id);

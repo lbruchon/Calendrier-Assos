@@ -24,7 +24,9 @@ public class MemberController {
         return members ;
     }
     @PostMapping("")
-    public void addMember(@RequestBody Member member) {
+    public void addMember(@ModelAttribute Member member) {
+        System.out.println(member);
+
         memberDAo.save(member);
     }
 
