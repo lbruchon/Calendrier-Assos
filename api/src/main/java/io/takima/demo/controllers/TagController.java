@@ -36,6 +36,7 @@ public class TagController {
     public void addTag(@RequestBody Tag tag) {
         tagDAO.save(tag);
     }
+    
     @DeleteMapping("/{id}")
     public ResponseEntity<Long> deleteTag(@PathVariable Long id) {
         boolean exists = tagDAO.existsById(id);
