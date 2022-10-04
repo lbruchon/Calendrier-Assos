@@ -31,7 +31,7 @@ public class MemberController {
         memberDAo.save(member);
     }
 
-    @GetMapping("/{{id}}")
+    @GetMapping("/AssoOfOneMember/{id}")
     public Association getAssociationByMemberId(@PathVariable Long id){
         boolean present= memberDAo.findById(id).isPresent();
         if (present){
@@ -41,4 +41,5 @@ public class MemberController {
         }
         else return null;
     }
+
 }
