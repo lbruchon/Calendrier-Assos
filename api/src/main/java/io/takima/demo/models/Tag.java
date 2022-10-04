@@ -1,6 +1,9 @@
 package io.takima.demo.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -13,14 +16,24 @@ public class Tag {
     @Column(name = "tag_name")
     private String tagName;
 
+    @OneToMany (mappedBy = "tag")
+    private List<Post> postTag;
 
     public Tag() {
     }
 
-    public Tag(Long tag_id, String tagName, Set<Post> posts) {
-        this.id = tag_id;
+    public Tag(Long id, String tagName, List<Post> postTag) {
+        this.id = id;
         this.tagName = tagName;
+        this.postTag = postTag;
+    }
 
+    public List<Post> getPostTag() {
+        return postTag;
+    }
+
+    public void setPostTag(List<Post> postTag) {
+        this.postTag = postTag;
     }
 
     public Long getTag_id() {
