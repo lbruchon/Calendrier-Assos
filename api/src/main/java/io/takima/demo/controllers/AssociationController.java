@@ -66,14 +66,14 @@ public class AssociationController {
 
 //PAs reussi a tester on verra wala
     @PatchMapping ("/{id}")
-    public ResponseEntity<Association> updateAssociationPartially(@PathVariable Long id, @RequestBody Association associationModif) {
+    public ResponseEntity<Association> updateAssociationPartially(@PathVariable Long id, @ModelAttribute Association associationModif) {
         boolean exists = associationDAO.existsById(id);
         if (exists) {
             Association association = associationDAO.findById(id).get();
 
             association.setAssociationName(associationModif.getAssociationName());
-            association.setAssociationName(associationModif.getAssociationIgLink());
-            association.setAssociationName(associationModif.getAssociationFbLink());
+            association.setAssociationIgLink(associationModif.getAssociationIgLink());
+            association.setAssociationFbLink(associationModif.getAssociationFbLink());
             final Association associationUpdated = associationDAO.save(association);
             return ResponseEntity.ok(associationUpdated);
         } else {
