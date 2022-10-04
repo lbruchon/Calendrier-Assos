@@ -40,7 +40,7 @@ public class AssociationController {
     }
 
     @PostMapping("")
-    public void addAssociation(@RequestBody Association association) { associationDAO.save(association); }
+    public void addAssociation(@ModelAttribute Association association) { associationDAO.save(association); }
 
     @DeleteMapping( "/{id}")
     public ResponseEntity<Long> deleteAssociation(@PathVariable Long id) {
@@ -63,7 +63,7 @@ public class AssociationController {
     public String puttest(){
         return "Put Success";
     }
-    
+
     @PatchMapping ("/{id}")
     public ResponseEntity<Association> updateAssociationPartially(@PathVariable Long id, @ModelAttribute Association associationModif) {
         boolean exists = associationDAO.existsById(id);
