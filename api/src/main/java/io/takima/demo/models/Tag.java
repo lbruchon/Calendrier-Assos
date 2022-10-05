@@ -1,6 +1,9 @@
 package io.takima.demo.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -13,16 +16,24 @@ public class Tag {
     @Column(name = "tag_name")
     private String tagName;
 
-   @OneToMany(mappedBy = "tag")
-   private Set<Post> posts;
+    @OneToMany (mappedBy = "tag")
+    private List<Post> postTag;
 
     public Tag() {
     }
 
-    public Tag(Long tag_id, String tagName, Set<Post> posts) {
-        this.id = tag_id;
+    public Tag(Long id, String tagName, List<Post> postTag) {
+        this.id = id;
         this.tagName = tagName;
-        this.posts = posts;
+        this.postTag = postTag;
+    }
+
+    public List<Post> getPostTag() {
+        return postTag;
+    }
+
+    public void setPostTag(List<Post> postTag) {
+        this.postTag = postTag;
     }
 
     public Long getTag_id() {
@@ -41,13 +52,6 @@ public class Tag {
         this.tagName = tagName;
     }
 
-    public Set<Post> getPosts() {
-        return posts;
-    }
-
-    public void setPosts(Set<Post> posts) {
-        this.posts = posts;
-    }
 
 
     @Override
@@ -55,12 +59,12 @@ public class Tag {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Tag tag = (Tag) o;
-        return Objects.equals(id, tag.id) && Objects.equals(tagName, tag.tagName) && Objects.equals(posts, tag.posts);
+        return Objects.equals(id, tag.id) && Objects.equals(tagName, tag.tagName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, tagName, posts);
+        return Objects.hash(id, tagName);
     }
 
     @Override
@@ -68,7 +72,6 @@ public class Tag {
         return "Tag{" +
                 "tag_id=" + id +
                 ", tagName='" + tagName + '\'' +
-                ", posts=" + posts +
                 '}';
     }
 }

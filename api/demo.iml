@@ -24,14 +24,15 @@
         </compilerSettings>
         <compilerArguments>
           <stringArguments>
+            <stringArg name="jvmTarget" arg="1.8" />
             <stringArg name="apiVersion" arg="1.4" />
             <stringArg name="languageVersion" arg="1.4" />
           </stringArguments>
           <arrayArguments>
             <arrayArg name="pluginClasspaths">
               <args>
-                <arg>$APPLICATION_HOME_DIR$/plugins/Kotlin/kotlinc/lib/noarg-compiler-plugin.jar</arg>
-                <arg>$APPLICATION_HOME_DIR$/plugins/Kotlin/kotlinc/lib/allopen-compiler-plugin.jar</arg>
+                <arg>$KOTLIN_BUNDLED$/lib/noarg-compiler-plugin.jar</arg>
+                <arg>$KOTLIN_BUNDLED$/lib/allopen-compiler-plugin.jar</arg>
               </args>
             </arrayArg>
             <arrayArg name="pluginOptions">

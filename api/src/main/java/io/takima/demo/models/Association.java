@@ -1,6 +1,9 @@
 package io.takima.demo.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -17,36 +20,54 @@ public class Association {
     private String associationFbLink;
     @Column(name="association_ig_link")
     private String associationIgLink;
-    @OneToMany(mappedBy = "association")
-    private Set<Post> posts;
-// tester avec une liste
 
-    public Association(Long association_id, String associationName, String associationFbLink, String associationIgLink, Set<Post> posts, Set<Tag> tags) {
-        this.id = association_id;
-        this.associationName = associationName;
-        this.associationFbLink = associationFbLink;
-        this.associationIgLink = associationIgLink;
-        this.posts = posts;
+    @OneToMany (mappedBy = "association")
+    @JsonIgnore
+    private List<Member> membresAsso;
 
+    @OneToMany (mappedBy = "association")
+    @JsonIgnore
+    private List<Post> postsAsso;
+
+    public List<Member> getMembresAsso() {
+        return membresAsso;
     }
 
-    public Association(Long asso_id, String associationName, String associationFbLink, String associationIgLink) {
-        this.id = asso_id;
+    public void setMembresAsso(List<Member> membresAsso) {
+        this.membresAsso = membresAsso;
+    }
+
+    public List<Post> getPostsAsso() {
+        return postsAsso;
+    }
+
+    public void setPostsAsso(List<Post> postsAsso) {
+        this.postsAsso = postsAsso;
+    }
+
+    public Association(Long id) {
+        this.id = id;
+    }
+
+    public Association(Long id, String associationName, String associationFbLink, String associationIgLink, List<Member> membresAsso, List<Post> postsAsso) {
+        this.id = id;
         this.associationName = associationName;
         this.associationFbLink = associationFbLink;
         this.associationIgLink = associationIgLink;
+        this.membresAsso = membresAsso;
+        this.postsAsso = postsAsso;
     }
 
     public Association() {
 
     }
 
-    public Long getAsso_id() {
+    public Long getId() {
         return id;
     }
 
-    public void setAsso_id(Long association_id) {
-        this.id = association_id;
+    public void setId(Long association_id) {
+        this.id = id;
     }
 
     public String getAssociationName() {
@@ -73,13 +94,6 @@ public class Association {
         this.associationIgLink = associationIgLink;
     }
 
-    public Set<Post> getPosts() {
-        return posts;
-    }
-
-    public void setPosts(Set<Post> posts) {
-        this.posts = posts;
-    }
 
 
     @Override
@@ -87,22 +101,21 @@ public class Association {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Association that = (Association) o;
-        return Objects.equals(id, that.id) && Objects.equals(associationName, that.associationName) && Objects.equals(associationFbLink, that.associationFbLink) && Objects.equals(associationIgLink, that.associationIgLink) && Objects.equals(posts, that.posts);
+        return Objects.equals(id, that.id) && Objects.equals(associationName, that.associationName) && Objects.equals(associationFbLink, that.associationFbLink) && Objects.equals(associationIgLink, that.associationIgLink);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, associationName, associationFbLink, associationIgLink, posts);
+        return Objects.hash(id, associationName, associationFbLink, associationIgLink);
     }
 
     @Override
     public String toString() {
         return "Association{" +
-                "association_id=" + id +
+                "id=" + id +
                 ", associationName='" + associationName + '\'' +
                 ", associationFbLink='" + associationFbLink + '\'' +
                 ", associationIgLink='" + associationIgLink + '\'' +
-                ", posts=" + posts +
                 '}';
     }
 }
