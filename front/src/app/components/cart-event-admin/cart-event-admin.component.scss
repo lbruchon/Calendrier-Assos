@@ -12,7 +12,7 @@
 }
 
 .item {
-    background-color: gray;
+    // background-color: gray;
     padding: 10px;
 }
 
@@ -29,10 +29,14 @@
     height: 100%;
 }
 
-.blue {
-    background-color: aqua;
+a:link {text-decoration: none;}
+
+.btn {
+    background-color: aquamarine;
+    
+    padding: 5px;
 }
 
-.red {
-    background-color: red;
+.btn:hover {
+    border: aquamarine 2px solid;
 }
