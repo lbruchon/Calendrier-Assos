@@ -7,12 +7,14 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { AddUserComponent } from './add-user/add-user.component';
 import { ListUsersComponent } from './list-users/list-users.component';
 import {FormsModule} from "@angular/forms";
+import {ConnexionComponent} from "./connexion/connexion.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     AddUserComponent,
-    ListUsersComponent
+    ListUsersComponent,
+    ConnexionComponent
   ],
   imports: [
     BrowserModule,
