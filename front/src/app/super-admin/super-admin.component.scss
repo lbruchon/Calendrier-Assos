@@ -8,7 +8,7 @@
 }
 
 h1 {
-    margin: 20px;
+    margin: 25px;
 }
 
 .containerr {
@@ -26,6 +26,17 @@ a {
     background-color: black;
     border-radius: 10px;
     color: white;
+}
+
+
+.btn {
+    background-color: black;
+    
+    padding: 5px 15px;
+}
+
+.btn:hover {
+    border: black 1px solid;
 }
 
 a:link {text-decoration: none;}
