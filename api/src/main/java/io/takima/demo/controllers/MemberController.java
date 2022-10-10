@@ -32,6 +32,18 @@ public class MemberController {
         }
     }
 
+    @GetMapping("/connexion/{memberEmail}/{memberMdp}")
+    public boolean memberConnectionControl(@PathVariable String memberEmail, @PathVariable String memberMdp){
+
+        Optional<Member> member = memberDAo.findByMemberEmailAndMemberMdp(memberEmail, memberMdp);
+        if (member.isPresent()){
+
+            System.out.println("role user : " + member.get().getMemberSuperadmin());
+            return true;
+        } else return false;
+
+    }
+
 
     @GetMapping("")
     public List<Member> listMember(){
