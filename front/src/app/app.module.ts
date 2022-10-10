@@ -9,6 +9,7 @@ import { ListUsersComponent } from './list-users/list-users.component';
 import {FormsModule} from "@angular/forms";
 import {ConnexionComponent} from "./connexion/connexion.component";
 import { SuperAdminComponent } from './super-admin/super-admin.component';
+import { CartEventAdminComponent } from './components/cart-event-admin/cart-event-admin.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SuperAdminComponent } from './super-admin/super-admin.component';
     AddUserComponent,
     ListUsersComponent,
     ConnexionComponent,
-    SuperAdminComponent
+    SuperAdminComponent,
+    CartEventAdminComponent
   ],
   imports: [
     BrowserModule,
