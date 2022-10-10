@@ -18,6 +18,7 @@ export class AddUserComponent implements OnInit {
   ngOnInit() {
   }
 
+
   onSubmit(ngForm: NgForm) {
     console.log(ngForm);
     const user = new User(
