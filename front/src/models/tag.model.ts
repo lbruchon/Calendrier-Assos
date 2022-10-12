@@ -6,7 +6,11 @@ export class Tag {
   postTag: Post;
 
 
-  constructor(id: bigint | null, tagName: string, postTag: Post) {
+  constructor(
+    id: bigint | null,
+    tagName: string,
+    postTag: Post
+    ) {
     this.id = id;
     this.tagName = tagName;
     this.postTag = postTag;

@@ -1,4 +1,5 @@
-import { TagContentType } from "@angular/compiler";
+import { Association } from './association.model';
+import { Tag } from './tag.model';
 
 export class Post {
   id: bigint | null;
@@ -6,19 +7,27 @@ export class Post {
   postPlace: string;
   postLink: string;
   postDescription: string;
-  postDateEvent:Date;
-  associationName : string;
-  tagName: string
+  postDateEvent: string;
+  association: Association;
+  tag: Tag;
 
-  constructor(id: bigint | null, postName: string,  postPlace: string, postLink: string, postDescription: string, postDateEvent:Date, associationName : string,tagName: string) {
+  constructor(
+    id: bigint | null,
+    postName: string,
+    postPlace: string,
+    postLink: string,
+    postDescription: string,
+    postDateEvent: string,
+    association: Association,
+    tag: Tag
+  ) {
     this.id = id;
     this.postName = postName;
-    this.postPlace=postPlace;
-    this.postLink=postLink;
+    this.postPlace = postPlace;
+    this.postLink = postLink;
     this.postDescription = postDescription;
-    this.postDateEvent=postDateEvent;
-    this.associationName=associationName;
-    this.tagName = tagName;
+    this.postDateEvent = postDateEvent;
+    this.association = association;
+    this.tag = tag;
   }
-
 }
