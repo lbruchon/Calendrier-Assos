@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <form #f="ngForm" (ngSubmit)="onSubmit(f)" >
+        <div class="form-group">
+          <label for="nomAssociation">
+            Nom association
+          </label>
+          <input type="text" id="nomAssociation" class="form-control" name="nomAssociation" ngModel>
+        </div>
+        <div class="form-group">
+          <label for="facebookLink">
+            Lien Facebook
+          </label>
+          <input type="text" id="facebookLink" class="form-control" name="facebookLink" ngModel>
+        </div>
+        <div class="form-group">
+          <label for="instagramLink">
+            Lien Instagram
+          </label>
+          <input type="text" id="instagramLink" class="form-control" name="instagramLink" ngModel>
+        </div>
+        <button class="btn btn-primary" type="submit">Ajouter</button>
+      </form>
+    </div>
+  </div>
+</div>
