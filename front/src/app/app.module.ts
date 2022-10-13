@@ -10,6 +10,7 @@ import {FormsModule} from "@angular/forms";
 import {ConnexionComponent} from "./connexion/connexion.component";
 import { AccueilComponent } from './accueil/accueil.component';
 import { CardEventComponent } from './components/card-event/card-event.component';
+import { AddAssoComponent } from './add-asso/add-asso.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CardEventComponent } from './components/card-event/card-event.component
     ListUsersComponent,
     ConnexionComponent,
     AccueilComponent,
-    CardEventComponent
+    CardEventComponent,
+    AddAssoComponent
   ],
   imports: [
     BrowserModule,
