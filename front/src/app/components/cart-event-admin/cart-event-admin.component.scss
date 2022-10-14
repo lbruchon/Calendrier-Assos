@@ -1,0 +1,43 @@
+
+.box {
+    display: flex;
+    gap: 5px;
+    border: black 2px solid;
+    border-radius: 5px;
+    width: fit-content;
+
+    margin: 10px;
+
+    h3 {
+        margin: 5px 10px;
+    }
+}
+
+.item {
+    padding: 10px;
+}
+
+.info {
+    display: flex;
+    margin: 10px;
+    justify-content: space-between;
+}
+
+.link {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+}
+
+a:link {text-decoration: none;}
+
+.btn {
+    background-color: aquamarine;
+    
+    padding: 5px;
+}
+
+.btn:hover {
+    border: aquamarine 2px solid;
+}

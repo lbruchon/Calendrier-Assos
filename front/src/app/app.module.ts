@@ -10,6 +10,8 @@ import {FormsModule} from "@angular/forms";
 import {ConnexionComponent} from "./connexion/connexion.component";
 import { AccueilComponent } from './accueil/accueil.component';
 import { CardEventComponent } from './components/card-event/card-event.component';
+import { SuperAdminComponent } from './super-admin/super-admin.component';
+import { CartEventAdminComponent } from './components/cart-event-admin/cart-event-admin.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { CardEventComponent } from './components/card-event/card-event.component
     ConnexionComponent,
     AccueilComponent,
     CardEventComponent
+    SuperAdminComponent,
+    CartEventAdminComponent
   ],
   imports: [
     BrowserModule,
