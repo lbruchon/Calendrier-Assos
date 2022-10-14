@@ -8,6 +8,8 @@ import { AddUserComponent } from './add-user/add-user.component';
 import { ListUsersComponent } from './list-users/list-users.component';
 import {FormsModule} from "@angular/forms";
 import {ConnexionComponent} from "./connexion/connexion.component";
+import { AccueilComponent } from './accueil/accueil.component';
+import { CardEventComponent } from './components/card-event/card-event.component';
 import { SuperAdminComponent } from './super-admin/super-admin.component';
 import { CartEventAdminComponent } from './components/cart-event-admin/cart-event-admin.component';
 
@@ -17,6 +19,8 @@ import { CartEventAdminComponent } from './components/cart-event-admin/cart-even
     AddUserComponent,
     ListUsersComponent,
     ConnexionComponent,
+    AccueilComponent,
+    CardEventComponent
     SuperAdminComponent,
     CartEventAdminComponent
   ],

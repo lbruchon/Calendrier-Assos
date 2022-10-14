@@ -2,6 +2,7 @@ package io.takima.demo.controllers;
 
 import io.takima.demo.DAO.PostDAO;
 import io.takima.demo.models.Post;
+import io.takima.demo.models.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -45,6 +46,17 @@ public class PostController {
         postDAO.save(post);
     }
 
+
+    @GetMapping("/TagPost/{id}")
+    public String getTagByPostId(@PathVariable Long id){
+        if (postDAO.findById(id).isPresent()){
+            Post post = postDAO.findById(id).get();
+            Tag tag = post.getTag();
+            return tag.getTagName();
+        }
+        
+        return null;
+    }
 
     @PatchMapping ("/{id}")
     public ResponseEntity<Post> updatePostPartially(@PathVariable Long id, @ModelAttribute Post postModif) {
