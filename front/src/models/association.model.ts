@@ -6,8 +6,8 @@ export class Association {
   associationName: string;
   associationFbLink: string;
   associationIgLink: boolean;
-  membresAsso: Array<Member>;
-  postsAsso: Array<Post>;
+  membresAsso: Array<Member> | null;
+  postsAsso: Array<Post> | null;
 
 
   constructor(
@@ -15,8 +15,8 @@ export class Association {
     associationName: string,
     associationFbLink: string,
     associationIgLink: boolean,
-    membresAsso: Array<Member>,
-    postsAsso: Array<Post>
+    membresAsso: Array<Member> | null,
+    postsAsso: Array<Post> | null
 ) {
     this.id = id
     this.associationName = associationName
