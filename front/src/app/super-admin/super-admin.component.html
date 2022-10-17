@@ -12,10 +12,6 @@
     </div>
 </div>
 
-<div class="box">
-    <app-cart-event-admin></app-cart-event-admin>
+<div class="box" *ngFor="let asso of assos">
+    <app-cart-event-admin [asso]="asso"></app-cart-event-admin>
 </div>
-
-<!-- <div class="box" *ngFor="let asso of assos">
-    <app-cart-event-admin [association]="asso"></app-cart-event-admin>
-</div> -->

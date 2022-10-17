@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { AssoService } from 'src/app/services/association.service';
+import { Association } from 'src/models/association.model';
 
 @Component({
   selector: 'app-cart-event-admin',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartEventAdminComponent implements OnInit {
 
-  constructor() { }
+  @Input() asso: any;
 
-  ngOnInit(): void {
+  constructor(){}
+
+  ngOnInit() {
   }
 
 }
