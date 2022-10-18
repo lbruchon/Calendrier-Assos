@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Post } from 'src/models/post.model';
+import { PostService } from '../services/post.service';
 
 @Component({
   selector: 'app-accueil',
@@ -6,10 +9,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./accueil.component.scss']
 })
 export class AccueilComponent implements OnInit {
-
-  constructor() { }
+posts : Post[];
+  constructor(private http: HttpClient, private postService : PostService) {
+    this.posts=[];
+  }
 
   ngOnInit(): void {
+    console.log("Page chargée")
+
+
+
   }
 
 }
