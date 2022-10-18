@@ -1,0 +1,17 @@
+<div class="containerr">
+    
+    <h1>Toutes les associations</h1>
+
+    <div class="btn_selection">
+        <a href="" class="btn">Ajout association</a>
+
+        <div class="status_admin">
+            <h5>Super admin</h5>
+            <a href="" class="btn">Déconnexion</a>
+        </div>
+    </div>
+</div>
+
+<div class="box" *ngFor="let asso of assos">
+    <app-cart-event-admin [asso]="asso"></app-cart-event-admin>
+</div>
