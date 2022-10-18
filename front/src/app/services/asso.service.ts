@@ -7,7 +7,7 @@ import {Association} from "../../models/association.model";
 @Injectable({
   providedIn: 'root'
 })
-export class AssociationService {
+export class AssoService {
 
   private url: string;
 

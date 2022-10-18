@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {Association} from "../../models/association.model";
-import {AssociationService} from "../services/association.service";
+import {AssoService} from "../services/asso.service";
 import {NgForm} from "@angular/forms";
 import {User} from "../../models/user.model";
 
@@ -13,7 +13,7 @@ import {User} from "../../models/user.model";
 })
 export class AddAssoComponent implements OnInit {
 
-  constructor(private httpClient: HttpClient, private router: Router, private assoService: AssociationService) {
+  constructor(private httpClient: HttpClient, private router: Router, private assoService: AssoService) {
   }
 
   ngOnInit() {
