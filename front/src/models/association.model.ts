@@ -5,26 +5,25 @@ export class Association {
   id: bigint | null;
   associationName: string;
   associationFbLink: string;
-  associationIgLink: string;
-  // membresAsso: Array<Member>;
-  // postsAsso: Array<Post>;
+  associationIgLink: boolean;
+  membresAsso: Array<Member> | null;
+  postsAsso: Array<Post> | null;
 
 
   constructor(
     id: bigint | null,
     associationName: string,
     associationFbLink: string,
-    associationIgLink: string
-    // membresAsso: Array<Member>,
-    // postsAsso: Array<Post>
+    associationIgLink: boolean,
+    membresAsso: Array<Member> | null,
+    postsAsso: Array<Post> | null
 ) {
     this.id = id
     this.associationName = associationName
     this.associationFbLink = associationFbLink
     this.associationIgLink = associationIgLink
-    // this.membresAsso = membresAsso
-    // this.postsAsso = postsAsso
+    this.membresAsso = membresAsso
+    this.postsAsso = postsAsso
   }
-
 
 }
