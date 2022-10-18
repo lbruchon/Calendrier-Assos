@@ -5,7 +5,6 @@ import io.takima.demo.models.Association;
 import io.takima.demo.models.Member;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -40,8 +39,11 @@ public class AssociationController {
         }
     }
 
-    @PostMapping("")
-    public void addAssociation(@ModelAttribute Association association) { associationDAO.save(association); }
+    @PostMapping("/add-asso")
+    public void addAssociation(@RequestBody Association association) {
+        System.out.println(association.toString());
+        associationDAO.save(association);
+    }
 
     @DeleteMapping( "/{id}")
     public ResponseEntity<Long> deleteAssociation(@PathVariable Long id) {
