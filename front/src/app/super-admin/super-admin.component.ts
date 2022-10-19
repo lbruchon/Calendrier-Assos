@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Association } from 'src/models/association.model';
 import {HttpClient} from "@angular/common/http";
-import { AssoService } from '../services/asso.service';
+import { AssoService } from '../services/association.service';
 
 @Component({
   selector: 'app-super-admin',
@@ -12,7 +12,7 @@ export class SuperAdminComponent implements OnInit {
 
   assos: any;
 
-  constructor(private assoService: AssoService) {
+  constructor(private assoService: AssoService) { 
   }
 
   ngOnInit() {

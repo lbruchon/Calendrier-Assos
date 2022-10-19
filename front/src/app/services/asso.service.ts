@@ -20,8 +20,4 @@ export class AssoService {
     return this.http.post<Association>(`${this.url}/associations/add-asso`, association);
   }
 
-  getAssos() {
-    return this.http.get<Association[]>(`${this.url}/associations`);
-  }
-
 }

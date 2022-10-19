@@ -25,22 +25,21 @@ export class ConnexionComponent implements OnInit {
     let email = ngForm.form.value.memberEmail;
     let mdp = ngForm.form.value.memberMdp;
 
-    this.memberService.getConnectedMember(email, mdp).subscribe(response => {
+    this.memberService.getConnectedMember(email, mdp).subscribe(response =>
+      {
 
-        console.log(response[0])
-        console.log(response[1])
-      //connected
-        if (response[0] == true) {
-          if (response[1] == true){
-            setTimeout(()=>this.router.navigateByUrl('/super-admin'), 1000)
-          } else setTimeout(()=>this.router.navigateByUrl('/association'), 1000)
+        console.log(response)
+        if (response == true){
+          console.log("connected")
         }
-        // not connected
-        else {
-          setTimeout(()=>this.router.navigateByUrl('/connexion'), 1000)
-        }
+        else console.log("not connected")
       }
-    )
+    ) ;
+
+
+
+    //setTimeout(()=>this.router.navigateByUrl('/'), 1000)
   }
+
 
 }

@@ -24,7 +24,7 @@ INSERT INTO defaultdb.members (id, member_email, member_mdp, member_superadmin, 
 VALUES (3, 'honore.fetnat@gmail.com', 'hofet', false, (SELECT id FROM associations WHERE association_name = 'Fake BDA'));
 
 INSERT INTO defaultdb.members (id, member_email, member_mdp, member_superadmin, asso_id)
-VALUES (4, 'iam.theone@gmail.com', 'rirififiloulou', true, (SELECT id FROM associations WHERE association_name = 'Fake BDJ'));
+VALUES (4, 'iam.theone@gmail.com', 'rirififiloulou', false, (SELECT id FROM associations WHERE association_name = 'Fake BDJ'));
 
 INSERT INTO defaultdb.members (id, member_email, member_mdp, member_superadmin, asso_id)
 VALUES (5, 'elton.john@gmail.com', 'elvis_presley', false, (SELECT id FROM associations WHERE association_name = 'Fake OPJ'));
