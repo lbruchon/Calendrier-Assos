@@ -9,15 +9,13 @@ import { PostService } from '../services/post.service';
   styleUrls: ['./accueil.component.scss']
 })
 export class AccueilComponent implements OnInit {
-posts : Post[];
-  constructor(private http: HttpClient, private postService : PostService) {
-    this.posts=[];
+posts : any;
+  constructor( private postService : PostService) {
   }
 
   ngOnInit(): void {
     console.log("Page chargée")
-
-
+      this.postService.getTreeNextMonthPosts().subscribe(response => this.posts = response)
 
   }
 
