@@ -20,8 +20,6 @@ export class ConnexionComponent implements OnInit {
   ngOnInit() {
   }
 
-
-
   onSubmit(ngForm: NgForm) {
 
     let email = ngForm.form.value.memberEmail;

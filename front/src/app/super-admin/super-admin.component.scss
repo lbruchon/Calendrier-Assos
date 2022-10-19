@@ -2,9 +2,11 @@
 
 .box {
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
-    justify-content: center;
-    margin: 10px;
+    justify-content: start;
+    margin: 20px;
+    width: fit-content;
 }
 
 h1 {
