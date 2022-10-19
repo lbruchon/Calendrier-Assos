@@ -1,24 +1,62 @@
-<!-- formulaire connexion-->
+<!-- formulaire connexion
 <div class="container">
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
 
-
-      <form #f="ngForm" (ngSubmit)="onSubmit(f)" >
-        <div class="form-group">
-          <label for="memberEmail">
-            Email
-          </label>
-          <input type="email" id="memberEmail" class="form-control" name="memberEmail" ngModel>
-        </div>
-        <div class="form-group">
-          <label for="memberMdp">
-            Mot de passe
-          </label>
-          <input type="text" id="memberMdp" class="form-control" name="memberMdp" ngModel>
-        </div>
-        <button class="btn btn-primary" type="submit">Connexion</button>
-      </form>
+      <div class="form-container">
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)" >
+          <div class="form-group">
+            <label for="memberEmail">
+              Email
+            </label>
+            <input type="email" id="memberEmail" class="form-control" name="memberEmail" ngModel required>
+          </div>
+          <div class="form-group">
+            <label for="memberMdp">
+              Mot de passe
+            </label>
+            <input type="text" id="memberMdp" class="form-control" name="memberMdp" ngModel required>
+          </div>
+          <button class="btn btn-primary" type="submit">Connexion</button>
+        </form>
+      </div>
     </div>
   </div>
-</div>
+</div>-->
+
+
+
+
+<section class="vh-100 gradient-custom">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+
+            <div class="mb-md-5 mt-md-4 pb-5">
+
+              <h2 class="fw-bold mb-2 text-uppercase">Connexion</h2>
+              <p class="text-white-50 mb-5">Veuillez entrer votre email et mot de passe !</p>
+
+              <form #f="ngForm" (ngSubmit)="onSubmit(f)" >
+                <div class="form-outline form-white mb-4">
+                  <input type="email" id="memberEmail" placeholder="Email" class="form-control" name="memberEmail" ngModel required>
+                </div>
+
+                <div class="form-outline form-white mb-4">
+                  <input type="text" id="memberMdp" placeholder="Mot de passe" class="form-control" name="memberMdp" ngModel required>
+                </div>
+
+                <button class="btn btn-outline-light btn-lg px-5" type="submit">Connexion</button>
+              </form>
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
