@@ -32,6 +32,7 @@ public class MemberController {
         }
     }
 
+    /*
     @GetMapping("/connexion/{memberEmail}/{memberMdp}")
     public boolean memberConnectionControl(@PathVariable String memberEmail, @PathVariable String memberMdp){
 
@@ -39,9 +40,29 @@ public class MemberController {
         if (member.isPresent()){
 
             System.out.println("role user : " + member.get().getMemberSuperadmin());
-            return true;
+            return member.get().getMemberSuperadmin();
         } else return false;
 
+    }*/
+
+    @GetMapping("/connexion/{memberEmail}/{memberMdp}")
+    List<Boolean> getMemberConnectedAndMemberRole(@PathVariable String memberEmail, @PathVariable String memberMdp) {
+
+        List<Boolean> coordinates = new ArrayList<>();
+        Optional<Member> member = memberDAo.findByMemberEmailAndMemberMdp(memberEmail, memberMdp);
+
+        if (member.isPresent()){
+            // on ajoute la première valeur de la liste : le user est connecté
+            coordinates.add(true);
+            // on ajoute la deuxième valeur de la liste : le user est un super admin ou non
+            coordinates.add(member.get().getMemberSuperadmin());
+            return coordinates;
+        }
+        else {
+            coordinates.add(false);
+            coordinates.add(false);
+            return coordinates;
+        }
     }
 
 

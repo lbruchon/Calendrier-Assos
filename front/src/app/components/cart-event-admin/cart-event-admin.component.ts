@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AssoService } from 'src/app/services/association.service';
+import { AssoService } from 'src/app/services/asso.service';
 import { Association } from 'src/models/association.model';
 
 @Component({
