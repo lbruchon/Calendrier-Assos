@@ -18,6 +18,6 @@ export class MemberService {
   }
 
   getConnectedMember(email : String, mdp : String) {
-    return this.http.get<boolean>(`${this.url}/members/connexion/${email}/${mdp}`);
+    return this.http.get<any>(`${this.url}/members/connexion/${email}/${mdp}`);
   }
 }
