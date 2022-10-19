@@ -13,8 +13,63 @@
 	</div>
 	<div class="item">
 		<div class="link">
-			<a href="" type="button" class="btn">edit</a>
-			<a href="" type="button" class="btn">delete</a>
+			<a type="button" class="btn" (click)="openEditPopup()">edit</a>
+			<a type="button" class="btn" (click)="openDeletePopup()">delete</a>
 		</div>
 	</div>
+</div>
+
+<div
+  class="modal"
+  tabindex="-1"
+  role="dialog"
+  [ngStyle]="{'display':displayEditStyle}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Modifier {{asso.associationName}}</h4>
+      </div>
+      <div class="modal-body">
+        <p>One Stop Solution for all CS problems</p>
+  
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn" 
+                (click)="closeEditPopup()">
+          Close
+        </button>
+		<button type="button" class="btn btn-danger"
+                (click)="closeEditPopup()">
+          Edit
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal"
+  tabindex="-1"
+  role="dialog"
+  [ngStyle]="{'display':displayDeleteStyle}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Supprimer {{asso.associationName}}</h4>
+      </div>
+      <div class="modal-body">
+        <p>Êtes-vous sûr de vouloir supprimer {{asso.associationName}} ?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn" 
+                (click)="closeDeletePopup()">
+          Close
+        </button>
+		<button type="button" class="btn btn-danger" 
+                (click)="deleteAsso(asso.id)">
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

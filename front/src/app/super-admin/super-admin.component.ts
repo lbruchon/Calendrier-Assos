@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Association } from 'src/models/association.model';
-import {HttpClient} from "@angular/common/http";
-import { AssoService } from '../services/association.service';
+import { AssoService } from '../services/asso.service';
 
 @Component({
   selector: 'app-super-admin',
