@@ -52,11 +52,11 @@ public class PostController {
 
 
     @GetMapping("/TagPost/{id}")
-    public String getTagByPostId(@PathVariable Long id){
+    public Tag getTagByPostId(@PathVariable Long id){
         if (postDAO.findById(id).isPresent()){
             Post post = postDAO.findById(id).get();
-            Tag tag = post.getTag();
-            return tag.getTagName();
+            
+            return post.getTag();
         }
         
         return null;

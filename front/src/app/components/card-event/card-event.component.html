@@ -1,23 +1,23 @@
 <div class="carteComplete">
   <div class="premiereLigneCarte">
     <div class="titreEtTag">
-      <H2>Titre évènement </H2>
+      <H2>{{post.postName}}</H2>
     </div>
 
     <div class="dateEvent"><span class="material-symbols-outlined icone">
       schedule
-      </span>88/88/8888</div>
+      </span>{{post.postDateEvent}}</div>
   </div>
-  <div class="tag">#soiree</div>
+  <div class="tag">{{tag.tagName}} alle</div>
   <div class="textPost">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+    {{post.postDescription}}
   </div>
   <div class="derniereLigneCarte">
     <div class="lieuNomEtIcone">
       <span class="material-symbols-outlined" style="margin-right: 0.4rem;">
         location_on
         </span>
-      lieu
+      {{post.postPlace}}
     </div>
     <div><button class="button-18" role="button"><span class="material-symbols-outlined" style="margin-right: 0.4rem;">
       link

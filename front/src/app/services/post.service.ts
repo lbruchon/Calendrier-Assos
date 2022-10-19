@@ -25,4 +25,7 @@ private result: Post[] = []
     return this.http.get<Post[]>(`${this.url}/posts/threeNextMonthPosts`)
   }
 
+  getTagNameIdPost(id: Int16Array) {
+    return this.http.get<Tag>(`${this.url}/TagPost/${id}`);
+  }
 }

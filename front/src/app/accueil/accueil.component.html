@@ -2,4 +2,6 @@
   Accueil works !
 
 </div>
-<app-card-event class="carteEvent"> </app-card-event>
+<div class="box" *ngFor="let post of posts">
+  <app-card-event [post]="post"></app-card-event>
+</div>

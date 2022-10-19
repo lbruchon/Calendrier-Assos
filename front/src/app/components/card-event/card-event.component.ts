@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
+import { PostService } from 'src/app/services/post.service';
 
 @Component({
   selector: 'app-card-event',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardEventComponent implements OnInit {
 
-  constructor() { }
+  @Input() post :any;
+  tag:any;
+  constructor(private postService : PostService) { }
 
   ngOnInit(): void {
-  }
+
+    this.tag =this.postService.getTagNameIdPost(this.post.id).subscribe(response => this.tag = response);
+
+    }
 
 }
