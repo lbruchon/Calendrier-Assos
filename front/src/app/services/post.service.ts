@@ -26,6 +26,7 @@ private result: Post[] = []
   }
 
   getTagNameIdPost(id: Int16Array) {
-    return this.http.get<Tag>(`${this.url}/TagPost/${id}`);
+    console.log(`${this.url}/posts/TagPost/${id}`);
+    return this.http.get<Tag>(`${this.url}/posts/TagPost/${id}`);
   }
 }

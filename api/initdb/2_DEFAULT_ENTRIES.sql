@@ -42,7 +42,7 @@ INSERT INTO defaultdb.posts (id, post_name, post_place, post_link, post_descript
 VALUES (4, 'Event en Nov', 'Moncuq', 'fb_link', 'Celui la doit safficher', '2022-11-14', (SELECT id FROM associations WHERE association_name = 'Fake OPJ'), (SELECT id FROM tags WHERE tag_name = 'Afterwork'));
 
 INSERT INTO defaultdb.posts (id, post_name, post_place, post_link, post_description, post_date_event, asso_id, tag_id)
-VALUES (5, 'Event en dec', 'Limoges', 'fb_link', 'Celui la doit safficher', '2022-12-14', (SELECT id FROM associations WHERE association_name = 'Fake BDA'), (SELECT id FROM tags WHERE tag_name = 'Voyage'));
+VALUES (5, 'Event en dec', 'Limoges', 'http://google.com', 'Celui la doit safficher', '2022-12-14', (SELECT id FROM associations WHERE association_name = 'Fake BDA'), (SELECT id FROM tags WHERE tag_name = 'Voyage'));
 
 INSERT INTO defaultdb.posts (id, post_name, post_place, post_link, post_description, post_date_event, asso_id, tag_id)
 VALUES (6, 'Event en Jan23', 'P212', 'fb_link', 'Celui la doit pas safficher', '2023-01-14', (SELECT id FROM associations WHERE association_name = 'Fake OPJ'), (SELECT id FROM tags WHERE tag_name = 'Voyage'));

@@ -10,12 +10,20 @@ export class CardEventComponent implements OnInit {
 
   @Input() post :any;
   tag:any;
+
   constructor(private postService : PostService) { }
 
   ngOnInit(): void {
 
     this.tag =this.postService.getTagNameIdPost(this.post.id).subscribe(response => this.tag = response);
 
+
     }
+
+    link() {
+      console.log(this.post.postLink);
+      let url = this.post.postLink;
+      window.open(url, '_blank');
+  }
 
 }
