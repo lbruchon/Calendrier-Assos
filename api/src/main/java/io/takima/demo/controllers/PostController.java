@@ -7,7 +7,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
 
@@ -48,14 +52,42 @@ public class PostController {
 
 
     @GetMapping("/TagPost/{id}")
-    public String getTagByPostId(@PathVariable Long id){
+    public Tag getTagByPostId(@PathVariable Long id){
         if (postDAO.findById(id).isPresent()){
             Post post = postDAO.findById(id).get();
-            Tag tag = post.getTag();
-            return tag.getTagName();
+
+            return post.getTag();
         }
         
         return null;
+    }
+
+
+
+    @GetMapping("/threeNextMonthPosts")
+    public List<Post> threeNextMonthPosts(){
+        List<Post> posts = listPosts();
+        List<Post> postsNextTreeMonth = new ArrayList<>();
+        String  dateStr;
+        //récup date actuelle
+        LocalDate today = LocalDate.now();
+        //récup date actuelle + 2 mois
+        LocalDate maxDate = today.plusMonths(2);
+        // compte nb jours dans mois date actuelle + 2 mois (et verif si année bisextille)
+        int nbDay =maxDate.getMonth().length(maxDate.isLeapYear());
+        //get le numero du jour actuel
+        int nbOfDayOfMaxDate = maxDate.getDayOfMonth();
+        // on ajoute Nb total de jour - jour actuel pour être au dernier jour du mois
+        LocalDate maxDateCorrected = maxDate.plusDays(nbDay-nbOfDayOfMaxDate);
+        System.out.println("Date corrected "+maxDateCorrected+" before corrected"+maxDate);
+        for (Post post : posts) {
+           dateStr = post.getPostDateEvent();
+           LocalDate dateDate = LocalDate.parse(dateStr);
+           if(dateDate.isAfter(today) && dateDate.isBefore(maxDateCorrected)){
+                postsNextTreeMonth.add(post);
+           }
+        }
+        return postsNextTreeMonth;
     }
 
     @PatchMapping ("/{id}")
