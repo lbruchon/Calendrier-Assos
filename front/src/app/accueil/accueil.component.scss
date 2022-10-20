@@ -6,3 +6,17 @@
 .box {
 
 }
+
+.Container{
+  width: 100%;
+  display: flex;
+}
+
+.LeftPanel{
+  width: 30%;
+}
+.RightPanel{
+  width: 70%;
+  display: flex;
+flex-direction: column;
+}

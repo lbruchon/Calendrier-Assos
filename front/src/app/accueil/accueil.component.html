@@ -1,4 +1,13 @@
-
-<div class="box" *ngFor="let post of posts">
-  <app-card-event [post]="post"></app-card-event>
+<div class="Container">
+  <div class="LeftPanel">
+    <div class="LogoUneEcole">
+    </div>
+    <div class="btnConnexion">
+    </div>
+  </div>
+  <div class="RightPanel">
+    <div class="box" *ngFor="let post of posts">
+      <app-card-event [post]="post"></app-card-event>
+    </div>
+  </div>
 </div>
