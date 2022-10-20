@@ -55,7 +55,7 @@ public class PostController {
     public Tag getTagByPostId(@PathVariable Long id){
         if (postDAO.findById(id).isPresent()){
             Post post = postDAO.findById(id).get();
-            
+
             return post.getTag();
         }
         
