@@ -9,10 +9,32 @@
 }
 
 .LeftPanel{
+  border-right-style: solid;
+  border-right-color:  #528B97;
+  border-right-width: 4px;
   width: 30%;
+
 }
+.box{
+  margin-left: 2rem;
+}
+.textTop{
+  margin: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+
+}
+
+.topPanel{
+  background: linear-gradient(90deg, rgba(82,139,151,1) 0%, rgba(15,57,97,1) 100%);
+}
+
 .RightPanel{
   width: 70%;
+
   display: flex;
 flex-direction: column;
 }
