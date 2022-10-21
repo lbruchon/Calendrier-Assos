@@ -24,7 +24,8 @@ posts : any;
     let url = "https://www.google.fr";
     this.router.navigate(['/connexion']);
 
-}
-
 
 }
+
+}
+

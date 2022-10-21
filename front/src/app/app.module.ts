@@ -14,6 +14,7 @@ import { SuperAdminComponent } from './super-admin/super-admin.component';
 import { CartEventAdminComponent } from './components/cart-event-admin/cart-event-admin.component';
 import { AddAssoComponent } from './add-asso/add-asso.component';
 import { AssoAdminComponent } from './asso-admin/asso-admin/asso-admin.component';
+import { CardEventModifComponent } from './components/card-event-modif/card-event-modif/card-event-modif.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AssoAdminComponent } from './asso-admin/asso-admin/asso-admin.component
     CartEventAdminComponent,
     CardEventComponent,
     AddAssoComponent,
-    AssoAdminComponent
+    AssoAdminComponent,
+    CardEventModifComponent
   ],
   imports: [
     BrowserModule,

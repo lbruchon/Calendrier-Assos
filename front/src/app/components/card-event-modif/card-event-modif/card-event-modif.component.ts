@@ -1,12 +1,12 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PostService } from 'src/app/services/post.service';
 
 @Component({
-  selector: 'app-card-event',
-  templateUrl: './card-event.component.html',
-  styleUrls: ['./card-event.component.scss'],
+  selector: 'app-card-event-modif',
+  templateUrl: './card-event-modif.component.html',
+  styleUrls: ['./card-event-modif.component.scss']
 })
-export class CardEventComponent implements OnInit {
+export class CardEventModifComponent implements OnInit {
   @Input() post: any;
   tag: any;
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PostService } from 'src/app/services/post.service';
 
 @Component({
   selector: 'app-asso-admin',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./asso-admin.component.scss']
 })
 export class AssoAdminComponent implements OnInit {
+  posts : any;
 
-  constructor() { }
+  constructor(private postService : PostService ) {}
 
   ngOnInit(): void {
+    console.log("Page chargée")
+      this.postService.getTreeNextMonthPosts().subscribe(response => this.posts = response)
+
   }
 
 }
