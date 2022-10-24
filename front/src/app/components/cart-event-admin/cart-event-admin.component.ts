@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AssoService } from 'src/app/services/asso.service';
+import { Association } from 'src/models/association.model';
 
 @Component({
   selector: 'app-cart-event-admin',
@@ -16,10 +18,9 @@ export class CartEventAdminComponent implements OnInit {
   ngOnInit() {
   }
 
-  
   displayEditStyle = "none";
   displayDeleteStyle = "none";
-  
+
   // Modal edit
   openEditPopup() {
     this.displayEditStyle = "block";
@@ -28,6 +29,7 @@ export class CartEventAdminComponent implements OnInit {
   closeEditPopup() {
     this.displayEditStyle = "none";
   }
+
 
   // Modal delete
   openDeletePopup() {
@@ -38,10 +40,34 @@ export class CartEventAdminComponent implements OnInit {
     this.displayDeleteStyle = "none";
   }
 
+
+  onSubmit(ngForm: NgForm) {
+
+    this.asso = new Association(
+      this.asso.id,
+      ngForm.form.value.nomAssociation,
+      ngForm.form.value.facebookLink,
+      ngForm.form.value.instagramLink,
+      null,
+      null,
+    )
+
+    console.log(this.asso)
+
+    this.displayEditStyle = "none";
+    this.assoService.updateAssociation(this.asso).subscribe();
+    this.refreshPage();
+  }
+
+
   deleteAsso(id: Number) {
     this.displayDeleteStyle = "none";
     this.assoService.deleteAssociation(id).subscribe();
-    setTimeout(()=>this.router.navigateByUrl('/super-admin'), 500);
+    this.refreshPage()
+  }
+
+  refreshPage() {
+    window.location.reload();
   }
 
 }

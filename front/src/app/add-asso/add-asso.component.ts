@@ -37,4 +37,5 @@ export class AddAssoComponent implements OnInit {
     this.assoService.addAssociation(association).subscribe();
     setTimeout(()=>this.router.navigateByUrl('/super-admin'), 500);
   }
+
 }

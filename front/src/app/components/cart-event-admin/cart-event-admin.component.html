@@ -3,7 +3,7 @@
 		<h3>{{asso.associationName}}</h3>
 		<div class="info">
 			<div class="image_asso">
-				image
+				<img class="image_association" src="../../../assets/EPF Logo + Baseline Negatif.png" alt="image de l'association"/>
 			</div>
 			<div class="link">
 				<a href="{{asso.associationFbLink}}" class="red">Facebook</a>
@@ -13,12 +13,13 @@
 	</div>
 	<div class="item">
 		<div class="link">
-			<a type="button" class="btn" (click)="openEditPopup()">edit</a>
-			<a type="button" class="btn" (click)="openDeletePopup()">delete</a>
+			<a type="button" class="btn" (click)="openEditPopup()">Modifier</a>
+			<a type="button" class="btn" (click)="openDeletePopup()">Supprimer</a>
 		</div>
 	</div>
 </div>
 
+<!-- Edit modal -->
 <div
   class="modal"
   tabindex="-1"
@@ -26,27 +27,32 @@
   [ngStyle]="{'display':displayEditStyle}">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Modifier {{asso.associationName}}</h4>
-      </div>
-      <div class="modal-body">
-        <p>One Stop Solution for all CS problems</p>
-  
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn" 
-                (click)="closeEditPopup()">
-          Close
-        </button>
-		<button type="button" class="btn btn-danger"
-                (click)="closeEditPopup()">
-          Edit
-        </button>
-      </div>
+      <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <div class="modal-header">
+          <h4 class="modal-title">Modifier l'association</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <input type="text" id="nomAssociation" class="form-control" name="nomAssociation" placeholder="Nom de l'association" ngModel>
+          </div>
+          <div class="form-group">
+            <input type="text" id="facebookLink" class="form-control" name="facebookLink" placeholder="Lien Facebook" ngModel>
+          </div>
+          <div class="form-group">
+            <input type="text" id="instagramLink" class="form-control" name="instagramLink" placeholder="Lien Instagram" ngModel>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn" (click)="closeEditPopup()">Retour</button>
+          <button type="submit" class="btn btn-danger">Modifier</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
 
+
+<!-- Delete modal -->
 <div
   class="modal"
   tabindex="-1"
@@ -63,11 +69,11 @@
       <div class="modal-footer">
         <button type="button" class="btn btn" 
                 (click)="closeDeletePopup()">
-          Close
+          Retour
         </button>
 		<button type="button" class="btn btn-danger" 
                 (click)="deleteAsso(asso.id)">
-          Delete
+          Supprimer
         </button>
       </div>
     </div>

@@ -13,7 +13,7 @@ const routes: Routes = [
   {path:'connexion', component: ConnexionComponent},
   {path:'index', component: AccueilComponent},
   {path:'super-admin', component: SuperAdminComponent},
-  {path:'add-asso', component: AddAssoComponent},
+  {path:'add-asso', component: AddAssoComponent}
 ];
 
 

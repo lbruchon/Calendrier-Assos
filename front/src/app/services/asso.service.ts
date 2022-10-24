@@ -23,12 +23,14 @@ export class AssoService {
     return this.http.get<Association[]>(`${this.url}/associations`);
   }
 
-  // A appeler lors du bouton edit dans le composant edit-asso
-  // editAssociation(id: Number): Observable<Association> {
-  //   return this.http.patch<Association>(`${this.url}/associations/${id}`, id);
-  // }
+  getAsso(id: Number) {
+    return this.http.get<Association>(`${this.url}/associations/edit-asso/${id}`);
+  }
 
-  // A appeler lors du bouton edit dans le composant delete-asso
+  updateAssociation(association: Association): Observable<Association> {
+    return this.http.put<Association>(`${this.url}/associations/${association.id}`, association);
+  }
+
   deleteAssociation(id: Number): Observable<Association> {
     return this.http.delete<Association>(`${this.url}/associations/${id}`);
   }

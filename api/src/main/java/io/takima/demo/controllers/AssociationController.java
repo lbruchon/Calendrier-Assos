@@ -58,8 +58,8 @@ public class AssociationController {
         return new ResponseEntity<>(id, HttpStatus.OK);
     }
 
-    @PatchMapping ("/{id}")
-    public ResponseEntity<Association> updateAssociationPartially(@PathVariable Long id, @ModelAttribute Association associationModif) {
+    @PutMapping ("/{id}")
+    public ResponseEntity<Association> updateAssociationPartially(@PathVariable Long id, @RequestBody Association associationModif) {
         boolean exists = associationDAO.existsById(id);
         if (exists) {
             Association association = associationDAO.findById(id).get();
