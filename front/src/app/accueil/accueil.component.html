@@ -1,5 +1,18 @@
-<div>
-  Accueil works !
+<div class="Container">
+  <div class="LeftPanel">
+    <div class="LogoUneEcole">
+      <img  class="images" src="../../assets/SchoolEventsLogo.png"/>
+      <button type="button" class="button-18 BoutonConnexion" (click)="ToPageConnect()">Se connecter</button>
+    </div>
+    <div class="btnConnexion">
 
+    </div>
+  </div>
+  <div class="RightPanel">
+    <div class="topPanel">
+      <div class="textTop">Découvrez les prochains évènements sur votre campus</div></div>
+    <div class="box" *ngFor="let post of posts">
+      <app-card-event [post]="post"></app-card-event>
+    </div>
+  </div>
 </div>
-<app-card-event class="carteEvent"> </app-card-event>

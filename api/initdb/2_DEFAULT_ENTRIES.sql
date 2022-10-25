@@ -37,3 +37,15 @@ VALUES (2, 'Afterwork BDE', '5 place de la Défense', 'fb_link', 'Viens rencontr
 
 INSERT INTO defaultdb.posts (id, post_name, post_place, post_link, post_description, post_date_event, asso_id, tag_id)
 VALUES (3, 'Voyage vers les tapas', 'Espagne', 'fb_link', 'Évades-toi vers une nouvelle destination', '2022-10-15', (SELECT id FROM associations WHERE association_name = 'Fake OPJ'), (SELECT id FROM tags WHERE tag_name = 'Voyage'));
+
+INSERT INTO defaultdb.posts (id, post_name, post_place, post_link, post_description, post_date_event, asso_id, tag_id)
+VALUES (4, 'Event en Nov', 'Moncuq', 'fb_link', 'Celui la doit safficher', '2022-11-14', (SELECT id FROM associations WHERE association_name = 'Fake OPJ'), (SELECT id FROM tags WHERE tag_name = 'Afterwork'));
+
+INSERT INTO defaultdb.posts (id, post_name, post_place, post_link, post_description, post_date_event, asso_id, tag_id)
+VALUES (5, 'Event en dec', 'Limoges', 'http://google.com', 'Celui la doit safficher', '2022-12-14', (SELECT id FROM associations WHERE association_name = 'Fake BDA'), (SELECT id FROM tags WHERE tag_name = 'Voyage'));
+
+INSERT INTO defaultdb.posts (id, post_name, post_place, post_link, post_description, post_date_event, asso_id, tag_id)
+VALUES (6, 'Event en Jan23', 'P212', 'fb_link', 'Celui la doit pas safficher', '2023-01-14', (SELECT id FROM associations WHERE association_name = 'Fake OPJ'), (SELECT id FROM tags WHERE tag_name = 'Voyage'));
+
+INSERT INTO defaultdb.posts (id, post_name, post_place, post_link, post_description, post_date_event, asso_id, tag_id)
+VALUES (7, 'Event en Oct22', 'P312', 'fb_link', 'Celui la doit safficher', '2022-10-28', (SELECT id FROM associations WHERE association_name = 'Fake BDA'), (SELECT id FROM tags WHERE tag_name = 'Voyage'));
