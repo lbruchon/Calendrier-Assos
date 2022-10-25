@@ -27,20 +27,23 @@ export class ConnexionComponent implements OnInit {
 
     this.memberService.getConnectedMember(email, mdp).subscribe(response => {
 
-        console.log(response[0])
-        console.log(response[1])
+        console.log("0" +response[0])
+        console.log("1" +response[1])
       //connected
-        if (response[0] == true) {
-          if (response[1] == true){
+        if (response[0] == "true") {
+          if (response[1] == "true"){
+            // set asso variable in local storage
+            console.log(response[2])
+            localStorage.setItem('currentMember', JSON.stringify(response[2]));
             setTimeout(()=>this.router.navigateByUrl('/super-admin'), 1000)
           } else setTimeout(()=>this.router.navigateByUrl('/association'), 1000)
         }
         // not connected
         else {
-          setTimeout(()=>this.router.navigateByUrl('/connexion'), 1000)
+          var div = document.getElementById('incorrectCreds');
+          div.insertAdjacentText( 'afterbegin', 'Les identifiants saisis sont incorrects !');
         }
       }
     )
   }
-
 }
