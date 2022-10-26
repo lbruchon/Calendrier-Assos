@@ -1,24 +1,33 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
-      <form #f="ngForm" (ngSubmit)="onSubmit(f)" >
-        <div class="form-group">
+      <div class = "d-inline-flex p-2 align-items-center">
+        <a href="/super-admin">
+          <img class="logo" src="assets/arrow-back.svg" alt="logo arrow back" width="50"/>
+        </a>
+        <h1>
+          Nouvelle association
+        </h1>
+      </div>
+      <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <div class="form-group ">
           <label for="nomAssociation">
             Nom association
           </label>
-          <input type="text" id="nomAssociation" class="form-control" name="nomAssociation" ngModel>
+          <input type="text" id="nomAssociation" class="form-control" name="nomAssociation" ngModel required>
         </div>
         <div class="form-group">
+
           <label for="facebookLink">
             Lien Facebook
           </label>
-          <input type="text" id="facebookLink" class="form-control" name="facebookLink" ngModel>
+          <input type="text" id="facebookLink" class="form-control" name="facebookLink" ngModel required="true">
         </div>
         <div class="form-group">
           <label for="instagramLink">
             Lien Instagram
           </label>
-          <input type="text" id="instagramLink" class="form-control" name="instagramLink" ngModel>
+          <input type="text" id="instagramLink" class="form-control" name="instagramLink"  ngModel required="true">
         </div>
         <button class="btn btn-primary" type="submit">Ajouter</button>
       </form>

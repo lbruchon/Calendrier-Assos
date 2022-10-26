@@ -17,10 +17,12 @@ export class AddAssoComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
+
+
   onSubmit(ngForm: NgForm) {
-    // let {nomAssociation: association_name, facebookLink: fblink, instagramLink: instalink} = ngForm.form.value;
 
     console.log("ngForm : " + ngForm.form.value);
 
