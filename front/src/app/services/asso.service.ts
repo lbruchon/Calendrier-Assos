@@ -27,6 +27,10 @@ export class AssoService {
     return this.http.get<Association>(`${this.url}/associations/edit-asso/${id}`);
   }
 
+  getAllPostOfAnAsso(id: Number){
+    return this.http.get<Association>(`${this.url}/associations//AllPostOfOneAsso/${id}`);
+  }
+
   updateAssociation(association: Association): Observable<Association> {
     return this.http.put<Association>(`${this.url}/associations/${association.id}`, association);
   }

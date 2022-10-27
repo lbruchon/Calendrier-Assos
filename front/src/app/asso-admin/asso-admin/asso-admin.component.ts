@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AssoService } from 'src/app/services/asso.service';
 import { PostService } from 'src/app/services/post.service';
 
 @Component({
@@ -9,11 +10,12 @@ import { PostService } from 'src/app/services/post.service';
 export class AssoAdminComponent implements OnInit {
   posts : any;
 
-  constructor(private postService : PostService ) {}
+  constructor(private postService : PostService, private assoService : AssoService ) {}
 
   ngOnInit(): void {
     console.log("Page chargée")
-      this.postService.getTreeNextMonthPosts().subscribe(response => this.posts = response)
+
+      this.assoService.getAllPostOfAnAsso(4).subscribe(response => this.posts = response)
 
   }
 

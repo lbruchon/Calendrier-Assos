@@ -3,6 +3,7 @@ package io.takima.demo.controllers;
 import io.takima.demo.DAO.AssociationDAO;
 import io.takima.demo.models.Association;
 import io.takima.demo.models.Member;
+import io.takima.demo.models.Post;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -37,6 +38,14 @@ public class AssociationController {
             Association association = (Association) associationOptional.get();
             return association;
         }
+    }
+
+    @GetMapping("/AllPostOfOneAsso/{id}")
+    public List<Post> getAllPostOfOneAsso(@PathVariable Long id){
+        Association asso =  getAssociationById(id);
+        List<Post> postOfOneAsso = asso.getPostsAsso();
+        
+        return postOfOneAsso;
     }
 
     @PostMapping("/add-asso")
