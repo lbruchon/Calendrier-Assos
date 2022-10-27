@@ -9,10 +9,10 @@ import {AddAssoComponent} from "./add-asso/add-asso.component";
 import { AssoAdminComponent } from './asso-admin/asso-admin/asso-admin.component';
 
 const routes: Routes = [
-  {path:'', component: ListUsersComponent},
+  {path:'user-useless', component: ListUsersComponent},
   {path:'add-user', component: AddUserComponent},
   {path:'connexion', component: ConnexionComponent},
-  {path:'index', component: AccueilComponent},
+  {path:'', component: AccueilComponent},
   {path:'super-admin', component: SuperAdminComponent},
   {path:'add-asso', component: AddAssoComponent},
   {path:'asso-admin', component: AssoAdminComponent}
