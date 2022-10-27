@@ -31,10 +31,13 @@ export class ConnexionComponent implements OnInit {
       //connected
         if (response[0] == "true") {
           if (response[1] == "true"){
-            // set asso variable in local storage
+            // set admin variable in local storage
             localStorage.setItem('currentMember', JSON.stringify(response[2]));
             setTimeout(()=>this.router.navigateByUrl('/super-admin'), 1000)
-          } else setTimeout(()=>this.router.navigateByUrl('/association'), 1000)
+          } else {
+            // set asso variable in local storage
+            localStorage.setItem('currentMember', JSON.stringify(response[2]));
+            setTimeout(()=>this.router.navigateByUrl('/association'), 1000)}
         }
         // not connected
         else {
