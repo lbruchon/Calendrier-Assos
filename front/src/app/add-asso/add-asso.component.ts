@@ -4,7 +4,6 @@ import {Router} from "@angular/router";
 import {Association} from "../../models/association.model";
 import {AssoService} from "../services/asso.service";
 import {NgForm} from "@angular/forms";
-import {User} from "../../models/user.model";
 
 @Component({
   selector: 'app-add-asso',
@@ -40,4 +39,5 @@ export class AddAssoComponent implements OnInit {
     this.assoService.addAssociation(association).subscribe();
     setTimeout(()=>this.router.navigateByUrl('/super-admin'), 500);
   }
+
 }
