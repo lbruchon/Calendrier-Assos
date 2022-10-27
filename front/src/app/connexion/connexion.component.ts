@@ -18,6 +18,8 @@ export class ConnexionComponent implements OnInit {
   }
 
   ngOnInit() {
+    var div = document.getElementById('incorrectCreds');
+    div.textContent = "";
   }
 
   onSubmit(ngForm: NgForm) {
@@ -25,21 +27,25 @@ export class ConnexionComponent implements OnInit {
     let email = ngForm.form.value.memberEmail;
     let mdp = ngForm.form.value.memberMdp;
 
-    this.memberService.getConnectedMember(email, mdp).subscribe(response =>
-      {
-
-        console.log(response)
-        if (response == true){
-          console.log("connected")
+    this.memberService.getConnectedMember(email, mdp).subscribe(response => {
+      //connected
+        if (response[0] == "true") {
+          if (response[1] == "true"){
+            // set admin variable in local storage
+            localStorage.setItem('currentMember', JSON.stringify(response[2]));
+            setTimeout(()=>this.router.navigateByUrl('/super-admin'), 1000)
+          } else {
+            // set asso variable in local storage
+            localStorage.setItem('currentMember', JSON.stringify(response[2]));
+            setTimeout(()=>this.router.navigateByUrl('/association'), 1000)}
         }
-        else console.log("not connected")
+        // not connected
+        else {
+          var div = document.getElementById('incorrectCreds');
+          div.textContent = "Les identifiants saisis sont incorrects !";
+        }
       }
-    ) ;
-
-
-
-    //setTimeout(()=>this.router.navigateByUrl('/'), 1000)
+    )
   }
-
 
 }

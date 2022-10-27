@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { AddUserComponent } from './add-user/add-user.component';
 import { ListUsersComponent } from './list-users/list-users.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ConnexionComponent} from "./connexion/connexion.component";
 import { AccueilComponent } from './accueil/accueil.component';
 import { CardEventComponent } from './components/card-event/card-event.component';
@@ -31,12 +31,13 @@ import { CardEventModifComponent } from './components/card-event-modif/card-even
     AssoAdminComponent,
     CardEventModifComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

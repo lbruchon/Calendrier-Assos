@@ -1,7 +1,6 @@
 package io.takima.demo.controllers;
 
 import io.takima.demo.DAO.MemberDAO;
-
 import io.takima.demo.models.Association;
 import io.takima.demo.models.Member;
 import org.springframework.http.HttpStatus;
@@ -33,15 +32,24 @@ public class MemberController {
     }
 
     @GetMapping("/connexion/{memberEmail}/{memberMdp}")
-    public boolean memberConnectionControl(@PathVariable String memberEmail, @PathVariable String memberMdp){
+    List<String> getMemberConnectedAndMemberRole(@PathVariable String memberEmail, @PathVariable String memberMdp) {
 
+        List<String> coordinates = new ArrayList<>();
         Optional<Member> member = memberDAo.findByMemberEmailAndMemberMdp(memberEmail, memberMdp);
+
         if (member.isPresent()){
-
-            System.out.println("role user : " + member.get().getMemberSuperadmin());
-            return true;
-        } else return false;
-
+            // on ajoute la première valeur de la liste : le user est connecté
+            coordinates.add("true");
+            // on ajoute la deuxième valeur de la liste : le user est un super admin ou non
+            coordinates.add(member.get().getMemberSuperadmin().toString());
+            coordinates.add(member.get().getMember_id().toString());
+            return coordinates;
+        }
+        else {
+            coordinates.add("false");
+            coordinates.add("false");
+            return coordinates;
+        }
     }
 
 
