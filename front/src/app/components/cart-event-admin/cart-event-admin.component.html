@@ -3,7 +3,7 @@
 		<h3>{{asso.associationName}}</h3>
 		<div class="info">
 			<div class="image_asso">
-				image
+				<img class="image_association" src="../../../assets/EPF Logo + Baseline Negatif.png" alt="image de l'association"/>
 			</div>
 			<div class="link">
 				<a href="{{asso.associationFbLink}}" class="red">Facebook</a>
@@ -13,8 +13,69 @@
 	</div>
 	<div class="item">
 		<div class="link">
-			<a href="" type="button" class="btn">edit</a>
-			<a href="" type="button" class="btn">delete</a>
+			<a type="button" class="btn" (click)="openEditPopup()">Modifier</a>
+			<a type="button" class="btn" (click)="openDeletePopup()">Supprimer</a>
 		</div>
 	</div>
+</div>
+
+<!-- Edit modal -->
+<div
+  class="modal"
+  tabindex="-1"
+  role="dialog"
+  [ngStyle]="{'display':displayEditStyle}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <div class="modal-header">
+          <h4 class="modal-title">Modifier l'association</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <input type="text" id="nomAssociation" class="form-control" name="nomAssociation" placeholder="Nom de l'association" ngModel>
+          </div>
+          <div class="form-group">
+            <input type="text" id="facebookLink" class="form-control" name="facebookLink" placeholder="Lien Facebook" ngModel>
+          </div>
+          <div class="form-group">
+            <input type="text" id="instagramLink" class="form-control" name="instagramLink" placeholder="Lien Instagram" ngModel>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn" (click)="closeEditPopup()">Retour</button>
+          <button type="submit" class="btn btn-danger">Modifier</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<!-- Delete modal -->
+<div
+  class="modal"
+  tabindex="-1"
+  role="dialog"
+  [ngStyle]="{'display':displayDeleteStyle}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Supprimer {{asso.associationName}}</h4>
+      </div>
+      <div class="modal-body">
+        <p>Êtes-vous sûr de vouloir supprimer {{asso.associationName}} ?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn" 
+                (click)="closeDeletePopup()">
+          Retour
+        </button>
+		<button type="button" class="btn btn-danger" 
+                (click)="deleteAsso(asso.id)">
+          Supprimer
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

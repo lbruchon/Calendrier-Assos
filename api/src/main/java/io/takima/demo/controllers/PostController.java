@@ -46,7 +46,7 @@ public class PostController {
     }
 
     @PostMapping("")
-    public void addPost(@ModelAttribute Post post) {
+    public void addPost(@RequestBody Post post) {
         postDAO.save(post);
     }
 
@@ -90,8 +90,8 @@ public class PostController {
         return postsNextTreeMonth;
     }
 
-    @PatchMapping ("/{id}")
-    public ResponseEntity<Post> updatePostPartially(@PathVariable Long id, @ModelAttribute Post postModif) {
+    @PutMapping ("/{id}")
+    public ResponseEntity<Post> updatePostPartially(@PathVariable Long id, @RequestBody Post postModif) {
         boolean exists = postDAO.existsById(id);
         if (exists) {
             Post post = postDAO.findById(id).get();

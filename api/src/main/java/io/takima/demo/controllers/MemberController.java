@@ -53,9 +53,8 @@ public class MemberController {
         return members ;
     }
     @PostMapping("")
-    public void addMember(@ModelAttribute Member member) {
+    public void addMember(@RequestBody Member member) {
         System.out.println(member);
-
         memberDAo.save(member);
     }
 
@@ -70,8 +69,8 @@ public class MemberController {
         else return null;
     }
 
-    @PatchMapping ("/{id}")
-    public ResponseEntity<Member> updateMemberPartially(@PathVariable Long id, @ModelAttribute Member memberModif) {
+    @PutMapping ("/{id}")
+    public ResponseEntity<Member> updateMemberPartially(@PathVariable Long id, @RequestBody Member memberModif) {
         boolean exists = memberDAo.existsById(id);
         System.out.println(memberModif);
         if (exists) {
