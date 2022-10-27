@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {Observable} from "rxjs";
 import {Association} from "../../models/association.model";
+import { Post } from "src/models/post.model";
 
 @Injectable({
   providedIn: 'root'
@@ -27,8 +28,8 @@ export class AssoService {
     return this.http.get<Association>(`${this.url}/associations/edit-asso/${id}`);
   }
 
-  getAllPostOfAnAsso(id: Number){
-    return this.http.get<Association>(`${this.url}/associations//AllPostOfOneAsso/${id}`);
+  getAllPostOfAnAssoByMemberId(id: Number){
+    return this.http.get<Post>(`${this.url}/associations/AllPostOfOneAssoByIdMember/${id}`);
   }
 
   updateAssociation(association: Association): Observable<Association> {

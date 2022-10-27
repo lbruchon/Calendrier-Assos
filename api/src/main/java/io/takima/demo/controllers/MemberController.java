@@ -36,7 +36,7 @@ public class MemberController {
 
         List<String> coordinates = new ArrayList<>();
         Optional<Member> member = memberDAo.findByMemberEmailAndMemberMdp(memberEmail, memberMdp);
-
+System.out.println(memberEmail + memberMdp);
         if (member.isPresent()){
             // on ajoute la première valeur de la liste : le user est connecté
             coordinates.add("true");
@@ -76,6 +76,8 @@ public class MemberController {
         }
         else return null;
     }
+
+
 
     @PutMapping ("/{id}")
     public ResponseEntity<Member> updateMemberPartially(@PathVariable Long id, @RequestBody Member memberModif) {

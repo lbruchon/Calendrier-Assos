@@ -20,4 +20,8 @@ export class MemberService {
   getConnectedMember(email : String, mdp : String) {
     return this.http.get<boolean>(`${this.url}/members/connexion/${email}/${mdp}`);
   }
+
+  getAssoByMemberID(id : Number){
+    return this.http.get<boolean>(`${this.url}/members/AssoOfOneMember/${id}`);
+  }
 }

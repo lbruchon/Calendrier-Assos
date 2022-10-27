@@ -1,6 +1,7 @@
 package io.takima.demo.controllers;
 
 import io.takima.demo.DAO.AssociationDAO;
+import io.takima.demo.DAO.MemberDAO;
 import io.takima.demo.models.Association;
 import io.takima.demo.models.Member;
 import io.takima.demo.models.Post;
@@ -17,8 +18,11 @@ import java.util.Optional;
 @RestController
 public class AssociationController {
     private final AssociationDAO associationDAO;
+    private final MemberDAO memberDAo;
 
-    public AssociationController(AssociationDAO associationDAO) {this.associationDAO= associationDAO;}
+    public AssociationController(AssociationDAO associationDAO, MemberDAO memberDAo) {this.associationDAO= associationDAO;
+        this.memberDAo = memberDAo;
+    }
 
     @GetMapping("")
         public List<Association> listAssociations(){
@@ -40,12 +44,16 @@ public class AssociationController {
         }
     }
 
-    @GetMapping("/AllPostOfOneAsso/{id}")
-    public List<Post> getAllPostOfOneAsso(@PathVariable Long id){
-        Association asso =  getAssociationById(id);
-        List<Post> postOfOneAsso = asso.getPostsAsso();
-        
-        return postOfOneAsso;
+    @GetMapping("/AllPostOfOneAssoByIdMember/{id}")
+    public List<Post> getAllPostOfOneAssoByIdMember(@PathVariable Long id){
+        boolean present= memberDAo.findById(id).isPresent();
+        if (present){
+            Member member = memberDAo.findById(id).get();
+            Association association = member.getAssociation();
+            List<Post> postOfOneAsso = association.getPostsAsso();
+            return postOfOneAsso;
+        }
+        return null;
     }
 
     @PostMapping("/add-asso")
