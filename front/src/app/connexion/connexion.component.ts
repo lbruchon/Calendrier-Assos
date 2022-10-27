@@ -39,7 +39,8 @@ export class ConnexionComponent implements OnInit {
           setTimeout(() => this.router.navigateByUrl('/super-admin'), 1000);
         } else {
           console.log('response 2 = ', response[2]);
-          localStorage['number'] = response[2];
+          localStorage['MemberId'] = response[2];
+          localStorage['AssoId'] = response[3];
           console.log('response 2 LS = ',localStorage['number']);
           localStorage.setItem('currentMember', JSON.stringify(response[2]));
           setTimeout(() => this.router.navigateByUrl('/asso-admin'), 1000);

@@ -43,6 +43,7 @@ System.out.println(memberEmail + memberMdp);
             // on ajoute la deuxième valeur de la liste : le user est un super admin ou non
             coordinates.add(member.get().getMemberSuperadmin().toString());
             coordinates.add(member.get().getMember_id().toString());
+            coordinates.add(member.get().getAssociation().getId().toString());
             return coordinates;
         }
         else {

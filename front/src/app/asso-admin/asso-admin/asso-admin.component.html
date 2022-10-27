@@ -1,5 +1,16 @@
-<div class="List post">
-  <div class="box" *ngFor="let post of posts">
-    <app-card-event-modif [post]="post"></app-card-event-modif>
+<div class="page">
+  <div class="ListPost">
+    <div class="box" *ngFor="let post of posts">
+      <app-card-event-modif [post]="post"></app-card-event-modif>
+    </div>
+  </div>
+
+  <div class="btn_selection">
+    <a href="/add-poste" class="btn">Ajout poste</a>
+
+    <div class="status_admin">
+      <h5>Votre association</h5>
+      <a href="/connexion" class="btn">Déconnexion</a>
+    </div>
   </div>
 </div>
