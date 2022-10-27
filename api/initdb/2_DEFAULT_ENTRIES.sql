@@ -29,6 +29,10 @@ VALUES (4, 'iam.theone@gmail.com', 'rirififiloulou', false, (SELECT id FROM asso
 INSERT INTO defaultdb.members (id, member_email, member_mdp, member_superadmin, asso_id)
 VALUES (5, 'elton.john@gmail.com', 'elvis_presley', false, (SELECT id FROM associations WHERE association_name = 'Fake OPJ'));
 
+INSERT INTO defaultdb.members (id, member_email, member_mdp, member_superadmin, asso_id)
+VALUES (6, 'super.admin@gmail.com', 'admin', true, (SELECT id FROM associations WHERE association_name = 'Fake BDS'));
+
+
 INSERT INTO defaultdb.posts (id, post_name, post_place, post_link, post_description, post_date_event, asso_id, tag_id)
 VALUES (1, 'Soirée intégration', '1 rue du palais', 'fb_link', 'Super post une super asso', '2022-10-09', (SELECT id FROM associations WHERE association_name = 'Fake BDE'), (SELECT id FROM tags WHERE tag_name = 'Soirée'));
 
