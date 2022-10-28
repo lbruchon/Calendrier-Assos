@@ -29,12 +29,62 @@
   </div>
   <div class="divModifs" id="toHide">
 
-      <span class="material-symbols-outlined" >
+      <span class="material-symbols-outlined" (click)="openEditPopup()" >
         edit
       </span>
       <span class="material-symbols-outlined" (click)="deleteThisPost(post.id)">
         delete
       </span>
 
+  </div>
+</div>
+
+<!-- Edit modal -->
+<div
+  class="modal"
+  tabindex="-1"
+  role="dialog"
+  [ngStyle]="{'display':displayEditStyle}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <div class="modal-header">
+          <h4 class="modal-title">Modifier un post</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <input type="text" id="postName" class="form-control" name="postName" placeholder="Titre du poste" ngModel>
+          </div>
+          <div class="form-group">
+            <input type="text" id="postPlace" class="form-control" name="postPlace" placeholder="Lieu de l'évent" ngModel>
+          </div>
+          <div class="form-group">
+            <input type="text" id="postLink" class="form-control" name="postLink" placeholder="Lien utile" ngModel>
+          </div>
+          <div class="form-group">
+            <input type="text" id="postDescription" class="form-control" name="postDescription" placeholder="Description de l'évent" ngModel>
+          </div>
+          <div class="form-group">
+            <input type="text" id="postDateEvent" class="form-control" name="postDateEvent" placeholder="Date de l'event AAAA/MM/JJ" ngModel>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn" (click)="closeEditPopup()">Retour</button>
+          <button type="submit" class="btn btn-danger">Modifier</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal"
+  tabindex="-1"
+  role="dialog"
+  [ngStyle]="{'display':displayChoixTag}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+    </div>
   </div>
 </div>
