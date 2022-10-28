@@ -36,4 +36,8 @@ private result: Post[] = []
     return this.http.delete<Post>(`${this.url}/posts/${id}`);
 
   }
+
+  updatePost(post: Post): Observable<Post> {
+    return this.http.put<Post>(`${this.url}/associations/${post.id}`, post);
+  }
 }

@@ -86,7 +86,7 @@
     <div class="modal-content">
       <div>Choisissez un tag en cliquant dessus</div>
       <div class="box" *ngFor="let tag of tagList">
-        <div class="unTag">{{tag.tagName}}</div>
+        <div class="unTag" (click)="addTagToPost()" >{{tag.tagName}}</div>
       </div>
       <button type="button" class="btn btn" (click)="closeChoixTagPopup()">Retour</button>
 
