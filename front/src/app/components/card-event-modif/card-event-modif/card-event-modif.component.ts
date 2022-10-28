@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { PostService } from 'src/app/services/post.service';
 import { NgForm } from '@angular/forms';
+import { TagService } from 'src/app/services/tag.service';
 
 @Component({
   selector: 'app-card-event-modif',
@@ -10,8 +11,8 @@ import { NgForm } from '@angular/forms';
 export class CardEventModifComponent implements OnInit {
   @Input() post: any;
   tag: any;
-  tagList : [];
-  constructor(private postService: PostService) {}
+  tagList : any;
+  constructor(private postService: PostService, private tagService: TagService) {}
 
   ngOnInit(): void {
     this.tag = this.postService
@@ -37,6 +38,14 @@ export class CardEventModifComponent implements OnInit {
   onSubmit(ngForm: NgForm) {
 
 
+
+    this.displayEditStyle = "none";
+    this.displayChoixTag= "block";
+    this.tagService.getTags().subscribe(response => this.tagList = response)
+  }
+
+  closeChoixTagPopup() {
+    this.displayChoixTag = "none";
   }
 
   closeEditPopup() {

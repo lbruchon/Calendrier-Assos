@@ -70,7 +70,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn" (click)="closeEditPopup()">Retour</button>
-          <button type="submit" class="btn btn-danger">Modifier</button>
+          <button type="submit" class="btn btn-danger">Suivant</button>
         </div>
       </form>
     </div>
@@ -84,6 +84,11 @@
   [ngStyle]="{'display':displayChoixTag}">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
+      <div>Choisissez un tag en cliquant dessus</div>
+      <div class="box" *ngFor="let tag of tagList">
+        <div class="unTag">{{tag.tagName}}</div>
+      </div>
+      <button type="button" class="btn btn" (click)="closeChoixTagPopup()">Retour</button>
 
     </div>
   </div>

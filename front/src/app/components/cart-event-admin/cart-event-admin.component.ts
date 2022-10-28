@@ -56,7 +56,7 @@ export class CartEventAdminComponent implements OnInit {
 
     this.displayEditStyle = "none";
     this.assoService.updateAssociation(this.asso).subscribe();
-    this.refreshPage();
+    this.refreshPage()
   }
 
 
