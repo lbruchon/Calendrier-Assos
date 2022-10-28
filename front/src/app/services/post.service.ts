@@ -38,6 +38,6 @@ private result: Post[] = []
   }
 
   updatePost(post: Post): Observable<Post> {
-    return this.http.put<Post>(`${this.url}/associations/${post.id}`, post);
+    return this.http.put<Post>(`${this.url}/posts/${post.id}`, post);
   }
 }

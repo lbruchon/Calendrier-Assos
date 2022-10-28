@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Optional;
 
 @CrossOrigin
-@RequestMapping(" ")
+@RequestMapping("posts")
 @RestController
 public class PostController {
 
@@ -93,6 +93,8 @@ public class PostController {
     @PutMapping ("/{id}")
     public ResponseEntity<Post> updatePostPartially(@PathVariable Long id, @RequestBody Post postModif) {
         boolean exists = postDAO.existsById(id);
+        System.out.println("Enter modif");
+        System.out.println(postModif);
         if (exists) {
             Post post = postDAO.findById(id).get();
 
