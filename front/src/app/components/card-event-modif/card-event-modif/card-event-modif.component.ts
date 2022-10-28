@@ -16,6 +16,7 @@ export class CardEventModifComponent implements OnInit {
   tagList : any;
   NouveauPost :any;
   asso : any;
+  idAsso : any ;
   constructor(private postService: PostService, private tagService: TagService) {}
 
   ngOnInit(): void {
@@ -28,21 +29,23 @@ export class CardEventModifComponent implements OnInit {
   displayChoixTag = "none";
 
   link() {
-    console.log(this.post.postLink);
+
     let url = this.post.postLink;
     window.open(url, '_blank');
   }
 
   deleteThisPost(id: Number){
-    console.log("on va suppr ", id);
+
     this.postService.deletePost(id).subscribe();
     window.location.reload();
   }
 
   onSubmit(ngForm: NgForm) {
+    console.log(+localStorage['number'] )
+   this.idAsso =+localStorage['number']
 
     this.asso = new Association(
-      BigInt(+localStorage['number']) ,
+      this.idAsso,
       null,
       null,
       null,
@@ -50,6 +53,9 @@ export class CardEventModifComponent implements OnInit {
       null,
 
     )
+
+    console.log("nsm allez le id asso" + this.asso.id)
+
 
     this.NouveauPost = new Post(
       this.post.id,
@@ -72,11 +78,12 @@ export class CardEventModifComponent implements OnInit {
   }
 
 addTagToPost(){
-  console.log("t'as cliqué sur "+ this.tag.tagName)
+
+
   this.NouveauPost.tag =this.tag;
   this.postService.updatePost(this.NouveauPost).subscribe();
   this.closeChoixTagPopup()
-  window.location.reload();
+
 }
 
   closeEditPopup() {
