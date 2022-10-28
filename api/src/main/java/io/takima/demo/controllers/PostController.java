@@ -117,9 +117,10 @@ System.out.println("post suppr");
         boolean exists = postDAO.existsById(id);
 
         if (!exists) {
-
+            System.out.println("gné");
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+
         postDAO.deleteById(id);
         return new ResponseEntity<>(id, HttpStatus.OK);
     }
