@@ -28,6 +28,7 @@ export class CardEventModifComponent implements OnInit {
 
   deleteThisPost(id: Number){
     console.log("on va suppr ", id);
-    this.postService.deletePost(id);
+    this.postService.deletePost(id).subscribe();
+    window.location.reload();
   }
 }

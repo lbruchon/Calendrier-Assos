@@ -30,9 +30,10 @@ private result: Post[] = []
     return this.http.get<Tag>(`${this.url}/posts/TagPost/${id}`);
   }
 
-  deletePost(id: Number){
+  deletePost(id: Number) : Observable<Post>{
     console.log("on delete", id)
-    return this.http.delete(`${this.url}/posts/${id}`);
+    console.log(`${this.url}/posts/${id}`)
+    return this.http.delete<Post>(`${this.url}/posts/${id}`);
 
   }
 }
