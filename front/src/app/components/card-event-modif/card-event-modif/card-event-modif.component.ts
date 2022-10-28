@@ -8,16 +8,19 @@ import { Association } from 'src/models/association.model';
 @Component({
   selector: 'app-card-event-modif',
   templateUrl: './card-event-modif.component.html',
-  styleUrls: ['./card-event-modif.component.scss']
+  styleUrls: ['./card-event-modif.component.scss'],
 })
 export class CardEventModifComponent implements OnInit {
   @Input() post: any;
   tag: any;
-  tagList : any;
-  NouveauPost :any;
-  asso : any;
-  idAsso : any ;
-  constructor(private postService: PostService, private tagService: TagService) {}
+  tagList: any;
+  NouveauPost: any;
+  asso: any;
+  idAsso: any;
+  constructor(
+    private postService: PostService,
+    private tagService: TagService
+  ) {}
 
   ngOnInit(): void {
     this.tag = this.postService
@@ -25,36 +28,20 @@ export class CardEventModifComponent implements OnInit {
       .subscribe((response) => (this.tag = response));
   }
 
-  displayEditStyle = "none";
-  displayChoixTag = "none";
+  displayEditStyle = 'none';
+  displayChoixTag = 'none';
 
   link() {
-
     let url = this.post.postLink;
     window.open(url, '_blank');
   }
 
-  deleteThisPost(id: Number){
-
+  deleteThisPost(id: Number) {
     this.postService.deletePost(id).subscribe();
     window.location.reload();
   }
 
   onSubmit(ngForm: NgForm) {
-    console.log(+localStorage['number'] )
-   this.idAsso =+localStorage['number']
-
-    this.asso = new Association(
-      this.idAsso,
-      null,
-      null,
-      null,
-      null,
-      null,
-
-    )
-
-    console.log("nsm allez le id asso" + this.asso.id)
 
 
     this.NouveauPost = new Post(
@@ -64,35 +51,32 @@ export class CardEventModifComponent implements OnInit {
       ngForm.form.value.postLink,
       ngForm.form.value.postDescription,
       ngForm.form.value.postDateEvent,
-      this.asso,
-      null,
-    )
+      this.post.association,
+      null
+    );
 
-    this.displayEditStyle = "none";
-    this.displayChoixTag= "block";
-    this.tagService.getTags().subscribe(response => this.tagList = response)
+    this.displayEditStyle = 'none';
+    this.displayChoixTag = 'block';
+    this.tagService
+      .getTags()
+      .subscribe((response) => (this.tagList = response));
   }
 
   closeChoixTagPopup() {
-    this.displayChoixTag = "none";
+    this.displayChoixTag = 'none';
   }
 
-addTagToPost(){
-
-
-  this.NouveauPost.tag =this.tag;
-  this.postService.updatePost(this.NouveauPost).subscribe();
-  this.closeChoixTagPopup()
-
-}
+  addTagToPost() {
+    this.NouveauPost.tag = this.tag;
+    this.postService.updatePost(this.NouveauPost).subscribe();
+    this.closeChoixTagPopup();
+  }
 
   closeEditPopup() {
-    this.displayEditStyle = "none";
+    this.displayEditStyle = 'none';
   }
-
 
   openEditPopup() {
-    this.displayEditStyle = "block";
+    this.displayEditStyle = 'block';
   }
-
 }
