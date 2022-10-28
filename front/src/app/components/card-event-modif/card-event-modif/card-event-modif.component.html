@@ -16,7 +16,7 @@
     </div>
     <div class="derniereLigneCarte">
       <div class="lieuNomEtIcone">
-        <span class="material-symbols-outlined" style="margin-right: 0.4rem;">
+        <span class="material-symbols-outlined"  style="margin-right: 0.4rem;">
           location_on
         </span>
         {{post.postPlace}}
@@ -32,7 +32,7 @@
       <span class="material-symbols-outlined" >
         edit
       </span>
-      <span class="material-symbols-outlined" >
+      <span class="material-symbols-outlined" (click)="deleteThisPost(post.id)">
         delete
       </span>
 

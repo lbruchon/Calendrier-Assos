@@ -29,4 +29,10 @@ private result: Post[] = []
     console.log(`${this.url}/posts/TagPost/${id}`);
     return this.http.get<Tag>(`${this.url}/posts/TagPost/${id}`);
   }
+
+  deletePost(id: Number){
+    console.log("on delete", id)
+    return this.http.delete(`${this.url}/posts/${id}`);
+
+  }
 }

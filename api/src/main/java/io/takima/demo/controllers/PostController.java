@@ -113,7 +113,7 @@ public class PostController {
 
     @DeleteMapping( "/{id}")
     public ResponseEntity<Long> deletePost(@PathVariable Long id) {
-
+System.out.println("post suppr");
         boolean exists = postDAO.existsById(id);
 
         if (!exists) {

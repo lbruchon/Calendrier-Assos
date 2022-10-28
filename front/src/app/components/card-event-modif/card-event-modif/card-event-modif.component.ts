@@ -25,4 +25,9 @@ export class CardEventModifComponent implements OnInit {
     let url = this.post.postLink;
     window.open(url, '_blank');
   }
+
+  deleteThisPost(id: Number){
+    console.log("on va suppr ", id);
+    this.postService.deletePost(id);
+  }
 }
