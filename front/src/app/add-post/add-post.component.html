@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <div class = "d-inline-flex p-2 align-items-center">
+        <a href="">
+          <img class="logo" src="assets/arrow-back.svg" alt="logo arrow back" width="50"/>
+        </a>
+        <h1>
+          Nouveau post
+        </h1>
+      </div>
+      <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <div class="form-group ">
+          <label for="nomEvent">
+            Nom évènement
+          </label>
+          <input type="text" id="nomEvent" class="form-control" name="nomEvent" ngModel required>
+        </div>
+        <div class="form-group">
+          <label for="dateEvent">
+            Date
+          </label>
+          <input type="date" id="dateEvent" class="form-control" name="dateEvent" ngModel required="true">
+        </div>
+        <div class="form-group">
+          <label for="lieuEvent">
+            Lieu
+          </label>
+          <input type="text" id="lieuEvent" class="form-control" name="lieuEvent"  ngModel required="true">
+        </div>
+        <div class="form-group">
+          <label for="descriptionEvent">
+            Description
+          </label>
+          <input type="text" id="descriptionEvent" class="form-control" name="descriptionEvent"  ngModel required="true">
+        </div>
+        <div class="form-group">
+          <label for="lienEvent">
+            Lien
+          </label>
+          <input type="text" id="lienEvent" class="form-control" name="lienEvent"  ngModel required="true">
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+          <label class="form-check-label" for="exampleRadios1">
+            Évènement
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+          <label class="form-check-label" for="exampleRadios2">
+            Afterwork
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+          <label class="form-check-label" for="exampleRadios3">
+            Soirée
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="option3">
+          <label class="form-check-label" for="exampleRadios3">
+            Voyage
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios5" value="option3">
+          <label class="form-check-label" for="exampleRadios3">
+            Sport
+          </label>
+        </div>
+        <button class="btn btn-primary" type="submit">Ajouter</button>
+      </form>
+    </div>
+  </div>
+</div>

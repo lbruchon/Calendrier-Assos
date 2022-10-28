@@ -41,11 +41,10 @@ public class PostController {
         }
     }
 
-    @PostMapping("")
+    @PostMapping("/add-post")
     public void addPost(@ModelAttribute Post post) {
         postDAO.save(post);
     }
-
 
     @GetMapping("/TagPost/{id}")
     public String getTagByPostId(@PathVariable Long id){
@@ -91,7 +90,4 @@ public class PostController {
         postDAO.deleteById(id);
         return new ResponseEntity<>(id, HttpStatus.OK);
     }
-
-
-    
 }

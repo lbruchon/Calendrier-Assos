@@ -24,4 +24,8 @@ export class AssoService {
     return this.http.get<Association[]>(`${this.url}/associations`);
   }
 
+  getAssosById(id: bigint) {
+    return this.http.get<Association[]>(`${this.url}/associations/${id}`);
+  }
+
 }

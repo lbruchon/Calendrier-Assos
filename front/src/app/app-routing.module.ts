@@ -6,6 +6,7 @@ import {ConnexionComponent} from "./connexion/connexion.component";
 import { AccueilComponent } from './accueil/accueil.component';
 import { SuperAdminComponent } from './super-admin/super-admin.component';
 import {AddAssoComponent} from "./add-asso/add-asso.component";
+import {AddPostComponent} from "./add-post/add-post.component";
 
 const routes: Routes = [
   {path:'', component: ListUsersComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path:'index', component: AccueilComponent},
   {path:'super-admin', component: SuperAdminComponent},
   {path:'add-asso', component: AddAssoComponent},
+  {path:'add-post', component: AddPostComponent},
 ];
 
 

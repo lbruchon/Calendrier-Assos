@@ -24,8 +24,6 @@ export class AddAssoComponent implements OnInit {
 
   onSubmit(ngForm: NgForm) {
 
-    console.log("ngForm : " + ngForm.form.value);
-
     const association = new Association(
       null,
       ngForm.form.value.nomAssociation,
@@ -34,8 +32,6 @@ export class AddAssoComponent implements OnInit {
       null,
       null,
     )
-
-    console.log(association)
 
     this.assoService.addAssociation(association).subscribe();
     //setTimeout(()=>this.router.navigateByUrl('/'), 1000)
